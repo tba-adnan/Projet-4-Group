@@ -2,7 +2,7 @@
 
 namespace Database\Factories;
 
-use App\Models\formateur;
+use App\Models\Formateur;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -10,7 +10,7 @@ use Illuminate\Database\Eloquent\Factories\Factory;
  */
 class FormateurFactory extends Factory
 {
-    protected $model=formateur::class;
+    protected $model=Formateur::class;
     public function definition()
     {
         return [

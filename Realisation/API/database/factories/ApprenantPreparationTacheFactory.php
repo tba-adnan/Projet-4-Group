@@ -2,10 +2,10 @@
 
 namespace Database\Factories;
 
-use App\Models\apprenant;
-use App\Models\apprenant_preparation_brief;
-use App\Models\apprenant_preparation_tache;
-use App\Models\preparation_tache;
+use App\Models\Apprenant;
+use App\Models\ApprenantPreparationBrief;
+use App\Models\ApprenantPreparationTache;
+use App\Models\PreparationTache;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -13,12 +13,12 @@ use Illuminate\Database\Eloquent\Factories\Factory;
  */
 class ApprenantPreparationTacheFactory extends Factory
 {
-    protected $model=apprenant_preparation_tache::class;
+    protected $model=ApprenantPreparationTache::class;
     public function definition()
     {
-        $preparationTache =preparation_tache::all()->pluck('id')->toArray();
-        $ApprenantPreparationBrief =apprenant_preparation_brief::all()->pluck('id')->toArray();
-        $apprenant =apprenant::all()->pluck('id')->toArray();
+        $preparationTache =PreparationTache::all()->pluck('id')->toArray();
+        $ApprenantPreparationBrief =ApprenantPreparationBrief::all()->pluck('id')->toArray();
+        $apprenant =Apprenant::all()->pluck('id')->toArray();
 
         return [
             "Preparation_tache_id"=>$this->faker->randomElement($preparationTache),

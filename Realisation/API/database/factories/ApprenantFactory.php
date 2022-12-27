@@ -2,14 +2,14 @@
 
 namespace Database\Factories;
 
-use App\Models\apprenant;
+use App\Models\Apprenant;
 use Illuminate\Database\Eloquent\Factories\Factory;
  
 
 class ApprenantFactory extends Factory
 {
    
-        protected $model=apprenant::class;
+        protected $model=Apprenant::class;
         public function definition()
         {
             return [
