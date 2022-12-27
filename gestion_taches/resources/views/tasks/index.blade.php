@@ -204,7 +204,6 @@ table.table td i {
                 </div>
                 <div>
                     <a href="{{route('generatePdf')}}" class="btn btn-outline-secondary" >Exporter PDF</a>
-                    <a href="/exportexcel" class="btn btn-outline-secondary" >exporter exel</a>
                     <a href="/exportexcel" class="btn btn-outline-secondary" >Exporter des tâches
                     </a>
 

@@ -30,12 +30,7 @@
                 <form class="card" action="{{ route('task.store') }}" method="POST">
                     @csrf
                   <h5 class="card-title d-flex justify-content-center fw-400">Ajouter une tache</h5>
-                <div class="col-md-6 col-lg-6">
-                    <form class="card" action="{{ route('task.store') }}" method="POST">
-                        @csrf
-                        <h5 class="card-title d-flex justify-content-center fw-400">Ajouter une tache dans le brief X</h5>
-
-                        <div class="card-body">
+              <div class="card-body">
                             <div class="form-group">
                                 <label class="text-muted" for="">Nom</label>
                                 <input class="form-control rounded" type="text" placeholder="" value="{{old('Nom_tache')}}" name="Nom_tache">
