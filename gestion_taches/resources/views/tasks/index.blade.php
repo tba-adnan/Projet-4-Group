@@ -137,7 +137,7 @@
         $value=$(this).val();
         $.ajax({
             type:'get',
-            url:'{{route("filter_bief")}}',
+            url:'{{route("filter_brief")}}',
             data:{'filter':$value},
             success:function(data){
                 console.log(data);
