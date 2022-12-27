@@ -13,6 +13,13 @@
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/css/style.css">
 </head>
 
 <body>
@@ -23,25 +30,26 @@
                 <form class="card" action="{{ route('task.store') }}" method="POST">
                     @csrf
                   <h5 class="card-title d-flex justify-content-center fw-400">Ajouter une tache</h5>
-
-                        <div class="card-body">
+              <div class="card-body">
                             <div class="form-group">
                                 <label class="text-muted" for="">Nom</label>
-                                <input class="form-control rounded" type="text" placeholder="" value="{{old('name')}}" name="name">
-                                @error('name')
+                                <input class="form-control rounded" type="text" placeholder="" value="{{old('Nom_tache')}}" name="Nom_tache">
+                                @error('Nom_tache')
                                     <label style="color: red;">{{$message}}</label>
                                 @enderror
                             </div>
 
                             <div class="form-group">
                                 <label class="text-muted" for="">Description</label>
-                                <input class="form-control rounded" type="text" placeholder="" name="description">
+                                <input class="form-control rounded" type="text" placeholder="" name="Description">
                             </div>
-
-                    <div class="form-group">
-                        <label class="text-muted" for="">Durée</label>
-                      <input class="form-control rounded" type="datetime-local" placeholder="duree" name="duree">
-                    </div>
+                            <div class="form-group">
+                                <label class="text-muted" for="">Duree</label>
+                                <input class="form-control rounded" type="datetime-local" value="{{old('Duree')}}" placeholder="duree" name="Duree">
+                                @error('Duree')
+                                    <label style="color: red;">{{$message}}</label>
+                                @enderror
+                            </div>
 
                             <div class="d-flex justify-content-between">
                                 <button class="btn  btn-primary">Ajouter</button>
