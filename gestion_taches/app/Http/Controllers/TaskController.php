@@ -19,21 +19,23 @@ class TaskController extends Controller
      */
     public function index( Request $request )
     {
-        /// change param value : 
-        // $request->merge(['page' => 1]);
-        // $r=$request->all();
-        $brief=Brief::all();
+        
+        $briefs=Brief::all();
         $tasks =Task::paginate(3);
-        // dd($tasks);
-        return view('tasks.index',['brief'=>$brief,'tasks'=>$tasks]);
+        return view('tasks.index',['briefs'=>$briefs,'tasks'=>$tasks]);
         
     }
-    public function filter_bief(Request $request){
+
+    /**
+     * Filter tasks by briefs
+     * 
+     */
+    public function filter_brief(Request $request){
         $task=Task::where('id_brief','Like','%'.$request->filter.'%')->get();
         return response(['dataTask'=>$task]);
 }
 
-    public function search_tache(Request $request){
+    public function search_task(Request $request){
         $searchtask=Task::where('name','Like','%'.$request->searchtask.'%')->get();
         return response(['search'=>$searchtask]);
 
