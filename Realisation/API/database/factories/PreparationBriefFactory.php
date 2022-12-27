@@ -2,8 +2,8 @@
 
 namespace Database\Factories;
 
-use App\Models\formateur;
-use App\Models\preparation_brief;
+use App\Models\Formateur;
+use App\Models\PreparationBrief;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -11,10 +11,10 @@ use Illuminate\Database\Eloquent\Factories\Factory;
  */
 class PreparationBriefFactory extends Factory
 {
-    protected $model=preparation_brief::class;
+    protected $model=PreparationBrief::class;
     public function definition()
     {
-        $formateur =formateur::all()->pluck('id')->toArray();
+        $formateur = Formateur::all()->pluck('id')->toArray();
         return [
             "Nom_du_brief"=>$this->faker->name(),
             "Description"=>$this->faker->word() ,

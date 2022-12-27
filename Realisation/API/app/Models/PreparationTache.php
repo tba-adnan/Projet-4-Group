@@ -5,18 +5,16 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class preparation_brief extends Model
+class PreparationTache extends Model
 {
     use HasFactory;
 
-    use HasFactory;
-    protected $table = "preparation_brief";
+    protected $table = "preparation_tache";
     public $timestamps= false;
     protected $fillable = [
-    "Nom_du_brief",
+    "Nom_tache",
     "Description",
     "Duree",
-    "Formateur_id"
+    "Preparation_brief_id"
     ];
 }
-

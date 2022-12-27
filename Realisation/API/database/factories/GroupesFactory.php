@@ -2,9 +2,9 @@
 
 namespace Database\Factories;
 
-use App\Models\anne_formation;
-use App\Models\formateur;
-use App\Models\groupes;
+use App\Models\AnneFormation;
+use App\Models\Formateur;
+use App\Models\Groupes;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -12,13 +12,13 @@ use Illuminate\Database\Eloquent\Factories\Factory;
  */
 class GroupesFactory extends Factory
 {
-    protected $model=groupes::class;
+    protected $model=Groupes::class;
     public function definition()
     {
-        $formateur =formateur::all()->pluck('id')->toArray();
+        $formateur =Formateur::all()->pluck('id')->toArray();
 
 
-        $annee_formation =anne_formation::all()->pluck('id')->toArray();
+        $annee_formation =AnneFormation::all()->pluck('id')->toArray();
 
 
         return [

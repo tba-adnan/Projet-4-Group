@@ -2,9 +2,10 @@
 
 namespace Database\Factories;
 
-use App\Models\apprenant;
-use App\Models\apprenant_preparation_brief;
-use App\Models\preparation_brief;
+
+use App\Models\Apprenant;
+use App\Models\ApprenantPreparationBrief;
+use App\Models\PreparationBrief;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -13,11 +14,11 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 class ApprenantPreparationBriefFactory extends Factory
 {
  
-    protected $model=apprenant_preparation_brief::class;
+    protected $model=ApprenantPreparationBrief::class;
     public function definition()
     {
-        $preparationBrief =preparation_brief::all()->pluck('id')->toArray();
-        $apprenant =apprenant::all()->pluck('id')->toArray();
+        $preparationBrief =PreparationBrief::all()->pluck('id')->toArray();
+        $apprenant =  Apprenant::all()->pluck('id')->toArray();
         return [
             "Date_affectation"=>$this->faker->date(),
             "Preparation_brief_id"=>$this->faker->randomElement($preparationBrief),

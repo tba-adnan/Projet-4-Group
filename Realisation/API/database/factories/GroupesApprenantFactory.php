@@ -2,9 +2,9 @@
 
 namespace Database\Factories;
 
-use App\Models\apprenant;
-use App\Models\groupes;
-use App\Models\groupes_apprenant;
+use App\Models\Apprenant;
+use App\Models\Groupes;
+use App\Models\GroupesApprenant;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -12,13 +12,13 @@ use Illuminate\Database\Eloquent\Factories\Factory;
  */
 class GroupesApprenantFactory extends Factory
 {
-    protected $model=groupes_apprenant::class;
+    protected $model=GroupesApprenant::class;
     public function definition()
     {
-        $apprenant =apprenant::all()->pluck('id')->toArray();
+        $apprenant =Apprenant::all()->pluck('id')->toArray();
 
 
-        $groupe =groupes::all()->pluck('id')->toArray();
+        $groupe =Groupes::all()->pluck('id')->toArray();
 
         return [
             "Groupe_id"=>$this->faker->randomElement($groupe),

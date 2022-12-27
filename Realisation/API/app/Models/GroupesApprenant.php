@@ -5,17 +5,17 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class anne_formation extends Model
+class GroupesApprenant extends Model
 {
-    use HasFactory;
+    
 
-    protected $table = "annee_formation";
+    use HasFactory;
+    protected $table = "groupes_apprenant";
     public $timestamps= false;
     protected $fillable = [
 
-
-        "Annee_scolaire",
-
+        "Groupe_id",
+        "Apprenant_id"
 
     ];
 }

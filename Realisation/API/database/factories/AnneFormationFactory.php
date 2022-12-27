@@ -2,7 +2,7 @@
 
 namespace Database\Factories;
 
-use App\Models\anne_formation;
+use App\Models\AnneFormation;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 
