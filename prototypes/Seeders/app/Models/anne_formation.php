@@ -8,4 +8,14 @@ use Illuminate\Database\Eloquent\Model;
 class anne_formation extends Model
 {
     use HasFactory;
+
+    protected $table = "annee_formation";
+    public $timestamps= false;
+    protected $fillable = [
+
+
+        "Annee_scolaire",
+
+
+    ];
 }

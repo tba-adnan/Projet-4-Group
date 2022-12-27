@@ -2,6 +2,9 @@
 
 namespace Database\Factories;
 
+use App\Models\apprenant_preparation_brief;
+use App\Models\groupes;
+use App\Models\groupes_preparation_brief;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -9,15 +12,14 @@ use Illuminate\Database\Eloquent\Factories\Factory;
  */
 class GroupesPreparationBriefFactory extends Factory
 {
-    /**
-     * Define the model's default state.
-     *
-     * @return array<string, mixed>
-     */
+    protected $model=groupes_preparation_brief::class;
     public function definition()
     {
+        $ApprenantPreparationBrief =apprenant_preparation_brief::all()->pluck('id')->toArray();
+        $groupe =groupes::all()->pluck('id')->toArray();
         return [
-            //
+            "Apprenant_preparation_brief_id"=>$this->faker->randomElement($ApprenantPreparationBrief),
+            "Groupe_id"=>$this->faker->randomElement($groupe),
         ];
     }
 }

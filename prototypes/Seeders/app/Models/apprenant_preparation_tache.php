@@ -8,4 +8,14 @@ use Illuminate\Database\Eloquent\Model;
 class apprenant_preparation_tache extends Model
 {
     use HasFactory;
+    protected $table = "apprenant_preparation_tache";
+    public $timestamps= false;
+    protected $fillable = [
+    "Preparation_tache_id",
+    "Apprenant_id",
+    "Apprenant_P_Brief_id",
+    "Etat",
+    "date_debut",
+    "date_fin"
+    ];
 }
