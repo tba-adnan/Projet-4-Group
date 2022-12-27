@@ -102,6 +102,10 @@ class TaskController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $request->validate([
+            'name'=>'required|max:50',
+            'duree'=>'required'
+        ]);
         $update=Task::findOrFail($id);
         $update->name=$request->get('name');
         $update->description=$request->get('description');
