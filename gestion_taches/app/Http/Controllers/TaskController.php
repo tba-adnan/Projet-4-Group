@@ -6,6 +6,7 @@ use App\Models\Task;
 use App\Models\Brief;
 use App\Exports\TaskExport;
 use App\Imports\TaskImport;
+use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Http\Request;
 use Maatwebsite\Excel\Facades\Excel;
 
@@ -142,5 +143,11 @@ class TaskController extends Controller
         Excel::import(new TaskImport, $request->file);
         return redirect()->back();
 
+    }
+
+    public function generatePdf(){
+        $tasks =Task::paginate(3);
+        $pdf = Pdf::loadView('pdf.tasks',compact('tasks'));
+    return $pdf->download('tasks.pdf');
     }
 }

@@ -136,11 +136,6 @@ table.table td i {
     border: unset;
 }
 </style>
-<script>
-// $(document).ready(function(){
-// 	$('[data-toggle="tooltip"]').tooltip();
-// });
-</script>
 </head>
 <body>
 <div class="container-xl">
@@ -195,19 +190,11 @@ table.table td i {
                                 @method('DELETE')
                                 <button id="trash-icon">
                                     <a  class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
-
                                 </button>
-
                             </form>
-
                         </td>
                     </tr>
-
-
-
                     @endforeach
-
-
                 </tbody>
             </table>
             <div class="d-flex justify-content-between">
@@ -215,14 +202,13 @@ table.table td i {
                     {!! $tasks->links() !!}
                 </div>
                 <div>
+                    <a href="{{route('generatePdf')}}" class="btn btn-outline-secondary" >Exporter PDF</a>
                     <a href="/exportexcel" class="btn btn-outline-secondary" >exporter exel</a>
 
                     <button type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#exampleModal">
                        impoter data
                       </button>
                  </div>
-
-
 
                   <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog" role="document">
@@ -249,11 +235,8 @@ table.table td i {
                     </form>
                     </div>
                   </div>
-
             </div>
-
         </div>
-
     </div>
 </div>
 <script type="text/javascript">
