@@ -25,5 +25,8 @@ Route::resource('task', TaskController::class);
 // });
 Route::get('exportexcel',[TaskController::class,'exportexcel'])->name('exportexcel');
 Route::post('importexcel',[TaskController::class,'importexcel'])->name('importexcel');
+route::get('/filter_bief',[TaskController::class,'filter_bief'])->name('filter_bief');
+route::get('/searchtache',[TaskController::class,'search_tache'])->name('searchtache');
+route::get('/generatePdf',[TaskController::class,'generatePdf'])->name('generatePdf');
 route::get('/filter_brief',[TaskController::class,'filter_brief'])->name('filter_brief');
 route::get('/searchtask',[TaskController::class,'search_task'])->name('searchtache');
