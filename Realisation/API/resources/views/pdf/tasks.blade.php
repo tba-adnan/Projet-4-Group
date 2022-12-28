@@ -17,8 +17,8 @@
           </tr>
           @foreach ($tasks as $task)
                     <tr>
-                        <td>{{ $task->name }}</td>
-                        <td>{{ $task->duree }}</td>
+                        <td>{{ $task->Nom_tache }}</td>
+                        <td>{{ $task->Duree }}</td>
                     </tr>
           @endforeach
         </table>

@@ -146,7 +146,7 @@ class PreparationTacheController extends Controller
 
     public function generatepdf(){
 
-        $tasks = Task::all();
+        $tasks = PreparationTache::all();
         $pdf = Pdf::loadView('pdf.tasks', compact('tasks'));
     return $pdf->download('tasks.pdf');
     }
