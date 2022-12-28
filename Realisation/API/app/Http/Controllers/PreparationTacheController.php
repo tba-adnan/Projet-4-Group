@@ -7,6 +7,8 @@ use App\Models\PreparationTache;
 use Illuminate\Http\Request;
 use App\Exports\TaskExport;
 use App\Imports\TaskImport;
+use App\Models\Task;
+use Barryvdh\DomPDF\Facade\Pdf;
 use Maatwebsite\Excel\Facades\Excel;
 
 class PreparationTacheController extends Controller
@@ -139,4 +141,14 @@ class PreparationTacheController extends Controller
         return redirect()->back();
 
     }
+
+    //  Export data form PDF
+
+    public function generatepdf(){
+
+        $tasks = Task::all();
+        $pdf = Pdf::loadView('pdf.tasks', compact('tasks'));
+    return $pdf->download('tasks.pdf');
+    }
+
 }
