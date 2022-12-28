@@ -79,7 +79,7 @@
                 </div>
                 <div>
                     <a href="{{route('generate')}}" class="btn btn-outline-secondary" >Exporter PDF</a>
-                    <a href="/exportexcel" class="btn btn-outline-secondary" >Exporter exel</a>
+                    <a href="/exportexcel" class="btn btn-outline-secondary" >Exporter excel</a>
                     <button type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#exampleModal">
                        Impoter data
                       </button>
