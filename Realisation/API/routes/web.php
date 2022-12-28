@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ApprenantController;
 use App\Http\Controllers\PreparationTacheController;
 use Illuminate\Support\Facades\Route;
 
@@ -24,4 +25,5 @@ Route::post('importexcel',[PreparationTacheController::class,'importexcel'])->na
 route::get('/filter_bief',[PreparationTacheController::class,'filter_bief'])->name('filter_bief');
 route::get('/searchtache',[PreparationTacheController::class,'search_tache'])->name('searchtache');
 route::get('/generatepdf',[PreparationTacheController::class,'generatepdf'])->name('generate');
+Route::resource('apprenant', ApprenantController::class);
 
