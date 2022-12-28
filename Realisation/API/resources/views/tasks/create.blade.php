@@ -44,7 +44,7 @@
                             </div>
                             <div class="form-group">
                                 <label class="text-muted" for="">Duree</label>
-                                <input class="form-control rounded" type="datetime-local" value="{{old('Duree')}}" placeholder="duree" name="Duree">
+                                <input class="form-control rounded" type="text" value="{{old('Duree')}}" placeholder="duree" name="Duree">
                                 @error('Duree')
                                     <label style="color: red;">{{$message}}</label>
                                 @enderror

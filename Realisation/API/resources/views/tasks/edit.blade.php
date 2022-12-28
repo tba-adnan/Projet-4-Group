@@ -47,14 +47,9 @@
                                 <label class="text-muted" for="">Description</label>
                                 <input class="form-control rounded" type="text" value="{{$edit->Description}}" placeholder="" name="Description">
                             </div>
-
-                    <div class="form-group">
-                        <label class="text-muted" for="">Durée</label>
-                      <input class="form-control rounded" value="{{$edit->duree}}" type="datetime-local" placeholder="duree" name="duree">
-                    </div>
                             <div class="form-group">
                                 <label class="text-muted" for="">Duree</label>
-                                <input class="form-control rounded" value="{{$edit->Duree}}" type="datetime-local" placeholder="duree" name="Duree">
+                                <input class="form-control rounded" value="{{$edit->Duree}}" type="text" placeholder="duree" name="Duree">
                                 @error('Duree')
                                 <label style="color: red;">{{$message}}</label>
                                 @enderror

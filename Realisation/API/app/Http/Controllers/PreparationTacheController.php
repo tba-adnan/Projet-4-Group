@@ -61,9 +61,9 @@ class PreparationTacheController extends Controller
         ]);
         PreparationTache::create([
 
-            'Nom_tache'=>$request->name,
-            'Description'=>$request->description,
-            'Duree'=>$request->duree
+            'Nom_tache'=>$request->Nom_tache,
+            'Description'=>$request->Description,
+            'Duree'=>$request->Duree
         ]);
 
         return to_route('task.index');
