@@ -44,7 +44,8 @@ class PreparationTacheController extends Controller
      */
     public function create()
     {
-        return view('tasks.create');
+        $brief=PreparationBrief::all();
+        return view('tasks.create',['brief'=>$brief]);
     }
 
     /**
@@ -63,7 +64,8 @@ class PreparationTacheController extends Controller
 
             'Nom_tache'=>$request->Nom_tache,
             'Description'=>$request->Description,
-            'Duree'=>$request->Duree
+            'Duree'=>$request->Duree,
+            'Preparation_brief_id'=>$request->Preparation_brief_id
         ]);
 
         return to_route('task.index');
@@ -89,7 +91,8 @@ class PreparationTacheController extends Controller
     public function edit($id)
     {
         $edit=PreparationTache::findOrFail($id);
-        return view('tasks.edit',compact('edit'));
+        $brief=PreparationBrief::all();
+        return view('tasks.edit',['edit'=>$edit,'brief'=>$brief]);
     }
 
     /**
@@ -109,6 +112,7 @@ class PreparationTacheController extends Controller
         $update->Nom_tache=$request->get('Nom_tache');
         $update->Description=$request->get('Description');
         $update->Duree=$request->get('Duree');
+        $update->Preparation_brief_id=$request->get('Preparation_brief_id');
         $update->save();
 
 

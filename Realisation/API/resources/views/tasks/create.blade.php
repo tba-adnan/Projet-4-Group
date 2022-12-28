@@ -49,7 +49,16 @@
                                     <label style="color: red;">{{$message}}</label>
                                 @enderror
                             </div>
-
+                            <div class="form-group">
+                                <label class="text-muted" for="">Brief</label>
+                                <select class="btn form-control rounded btn-secondary dropdown-toggle ml-2" name="Preparation_brief_id" id="Preparation_brief_id">
+                                    <option value="">select brief</option>
+                                    @foreach ($brief as $value)
+                                    <option value="{{$value->id}}">{{$value->Nom_du_brief}}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                            
                             <div class="d-flex justify-content-between">
                                 <button class="btn  btn-primary">Ajouter</button>
                                 <a class="btn  btn-secondary" href="{{ route('task.index') }}">Annuler</a>

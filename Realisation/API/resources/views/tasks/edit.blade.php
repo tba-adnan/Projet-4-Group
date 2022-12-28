@@ -47,6 +47,15 @@
                                 <label style="color: red;">{{$message}}</label>
                                 @enderror
                             </div>
+                            <div class="form-group">
+                                <label class="text-muted" for="">Brief</label>
+                                <select class="btn form-control rounded btn-secondary dropdown-toggle ml-2" name="Preparation_brief_id" id="Preparation_brief_id">
+                                    <option value="{{$edit->Preparation_brief_id}}">{{$edit->Preparation_brief_id}}</option>
+                                    @foreach ($brief as $value)
+                                    <option value="{{$value->id}}">{{$value->Nom_du_brief}}</option>
+                                    @endforeach
+                                </select>
+                            </div>
 
                             <div class="d-flex justify-content-between">
                                 <button class="btn  btn-primary">Enregirter</button>
