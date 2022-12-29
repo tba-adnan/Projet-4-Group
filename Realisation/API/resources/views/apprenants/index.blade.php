@@ -129,7 +129,7 @@
                 if(apprenants.length>0){
                     for(let i=0;i<apprenants.length;i++){
                         html+=`<tr>
-                                    <td>${apprenants[i]['Image']}</td>
+                                    <td> <img src="{{asset('./imageapprent')}}/${apprenants[i]['Image']}" alt="" width="80" height="80"></td>
                                     <td>${apprenants[i]['Nom']}</td>
                                     <td>${apprenants[i]['Prenom']}</td>
                                     <td><a  href="/apprenant/${apprenants[i]['id']}/edit" class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
@@ -143,8 +143,8 @@
                     }
                 }
                 else{
-                    html+=`<tr>\
-                    <td>no apprenant</td>\
+                    html+=`<tr>
+                    <td>no apprenant</td>
                     </tr>`;
                 }
                 $('#table1').html(html);
@@ -164,6 +164,7 @@
                 if(apprenants.length>0){
                     for(let i=0;i<apprenants.length;i++){
                         html+=`<tr>
+                                    <td> <img src="{{asset('./imageapprent')}}/${apprenants[i]['Image']}" alt="" width="80" height="80"></td>
                                     <td>${apprenants[i]['Image']}</td>
                                     <td>${apprenants[i]['Nom']}</td>
                                     <td>${apprenants[i]['Prenom']}</td>
@@ -179,7 +180,7 @@
                 }
                 else{
                     html+='<tr>\
-                    <td>no tache</td>\
+                    <td>no apprenant</td>\
                     </tr>';
                 }
                 $('#table1').html(html);

@@ -28,14 +28,20 @@ class ApprenantController extends Controller
         return view('apprenants.index',['groupes'=>$groupes,'apprenant'=>$apprenant]);
     }
     public function filter_group(Request $request){
-        $apprenants = DB::table('Apprenant')
-        ->select("*" )
-            ->join('groupes_apprenant', 'Apprenant.id', '=', 'groupes_apprenant.Apprenant_id')
-            ->join('Groupes', 'groupes_apprenant.Groupe_id', '=', 'Groupes.id')
-            ->where('Groupes.id','Like','%'.$request->filter.'%')
-            ->get();
-            // dd($apprenants);
-            return response(['dataapprenants'=>$apprenants]); 
+        if($request->has('filter')){
+            $apprenants = DB::table('Apprenant')
+            ->select("*" )
+                ->join('groupes_apprenant', 'Apprenant.id', '=', 'groupes_apprenant.Apprenant_id')
+                ->join('Groupes', 'groupes_apprenant.Groupe_id', '=', 'Groupes.id')
+                ->where('Groupes.id','Like','%'.$request->filter.'%')
+                ->get();
+                // dd($apprenants);
+                return response(['dataapprenants'=>$apprenants]); 
+        }
+        else{
+            $apprenants=Apprenant::all();
+            return response(['dataapprenants'=>$apprenants]);
+        }
             
     }
     public function search_apprenant(Request $request){
@@ -91,6 +97,12 @@ class ApprenantController extends Controller
             'Image'=>$Image
             
         ]);
+        // GroupesApprenant::create([
+
+        //     'Groupe_id'=>$request->Groupe_id,
+        //     'Apprenant_id'=>$request->Apprenant_id,
+            
+        // ]);
 
         return redirect()->route('apprenant.index');
     }

@@ -14,7 +14,7 @@
           <tr>
             {{-- <th>Image</th> --}}
             <th>Nom</th>
-            <th>Durée</th>
+            <th>Prenom</th>
           </tr>
           <tbody  class="table1" id="table1">
             @foreach ($apprenant as $value )
