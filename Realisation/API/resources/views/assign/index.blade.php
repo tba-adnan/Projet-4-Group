@@ -98,6 +98,7 @@
             success:function(data){
 
                 console.log(data);
+                
                 var apprenants=data.apprenants;
                 var html='';
 
