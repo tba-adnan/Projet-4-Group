@@ -28,10 +28,10 @@
     <div class="col-md-6 col-lg-6">
                 <form class="card" action="{{ route('task.store',app()->getLocale()) }}" method="POST">
                     @csrf
-                  <h5 class="card-title d-flex justify-content-center fw-400">Ajouter une tache</h5>
+                  <h5 class="card-title d-flex justify-content-center fw-400">{{__('message.add_task')}}</h5>
               <div class="card-body">
                             <div class="form-group">
-                                <label class="text-muted" for="">Nom</label>
+                                <label class="text-muted" for="">{{__('message.name')}}</label>
                                 <input class="form-control rounded" type="text" placeholder="" value="{{old('Nom_tache')}}" name="Nom_tache">
                                 @error('Nom_tache')
                                     <label style="color: red;">{{$message}}</label>
@@ -39,12 +39,12 @@
                             </div>
 
                             <div class="form-group">
-                                <label class="text-muted" for="">Description</label>
+                                <label class="text-muted" for="">{{__('message.description')}}</label>
                                 <input class="form-control rounded" type="text" placeholder="" name="Description">
                             </div>
                             <div class="form-group">
-                                <label class="text-muted" for="">Duree</label>
-                                <input class="form-control rounded" type="text" value="{{old('Duree')}}" placeholder="duree" name="Duree">
+                                <label class="text-muted" for="">{{__('message.duration')}}</label>
+                                <input class="form-control rounded" type="text" value="{{old('Duree')}}"name="Duree">
                                 @error('Duree')
                                     <label style="color: red;">{{$message}}</label>
                                 @enderror
@@ -52,7 +52,7 @@
                             <div class="form-group">
                                 <label class="text-muted" for="">Brief</label>
                                 <select class="btn form-control rounded btn-secondary dropdown-toggle ml-2" name="Preparation_brief_id" id="Preparation_brief_id">
-                                    <option value="">select brief</option>
+                                    <option value="">{{__('message.select_brief')}}</option>
                                     @foreach ($brief as $value)
                                     <option value="{{$value->id}}">{{$value->Nom_du_brief}}</option>
                                     @endforeach
@@ -60,8 +60,8 @@
                             </div>
 
                             <div class="d-flex justify-content-between">
-                                <button class="btn  btn-primary">Ajouter</button>
-                                <a class="btn  btn-secondary" href="{{ route('task.index',app()->getLocale()) }}">Annuler</a>
+                                <button class="btn  btn-primary">{{__('message.add')}}</button>
+                                <a class="btn  btn-secondary" href="{{ route('task.index',app()->getLocale()) }}">{{__('message.cancel')}}</a>
                             </div>
 
                         </div>

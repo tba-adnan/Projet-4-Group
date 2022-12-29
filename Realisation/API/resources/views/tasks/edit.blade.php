@@ -25,10 +25,10 @@
                 <form class="card" action="{{ route('task.update',[$edit->id,app()->getLocale()]) }}" method="POST">
                     @method('PUT')
                     @csrf
-                  <h5 class="card-title d-flex justify-content-center fw-400">Modifier une tache </h5>
+                  <h5 class="card-title d-flex justify-content-center fw-400">{{__('message.title_edit')}} </h5>
                         <div class="card-body">
                             <div class="form-group">
-                                <label class="text-muted" for="">Nom</label>
+                                <label class="text-muted" for="">{{__('message.name')}}</label>
                                 <input class="form-control rounded" type="text" value="{{$edit->Nom_tache}}" placeholder="" name="Nom_tache">
                                 @error('Nom_tache')
                                 <label style="color: red;">{{$message}}</label>
@@ -36,11 +36,11 @@
                             </div>
 
                             <div class="form-group">
-                                <label class="text-muted" for="">Description</label>
+                                <label class="text-muted" for="">{{__('message.description')}}</label>
                                 <input class="form-control rounded" type="text" value="{{$edit->Description}}" placeholder="" name="Description">
                             </div>
                             <div class="form-group">
-                                <label class="text-muted" for="">Duree</label>
+                                <label class="text-muted" for="">{{__('message.duration')}}</label>
                                 <input class="form-control rounded" value="{{$edit->Duree}}" type="text" placeholder="duree" name="Duree">
                                 @error('Duree')
                                 <label style="color: red;">{{$message}}</label>
@@ -57,8 +57,8 @@
                             </div>
 
                             <div class="d-flex justify-content-between">
-                                <button class="btn  btn-primary">Enregirter</button>
-                                <a class="btn  btn-secondary" href="{{ route('task.index',app()->getLocale()) }}">Annuler</a>
+                                <button class="btn  btn-primary">{{__('message.save')}}</button>
+                                <a class="btn  btn-secondary" href="{{ route('task.index',app()->getLocale()) }}">{{__('message.cancel')}}</a>
                             </div>
 
                         </div>

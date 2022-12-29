@@ -8,12 +8,12 @@
     <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
-    <h1>List des données</h1>
+    <h1>{{__('message.pdf_title')}}</h1>
         
         <table id="customers">
           <tr>
-            <th>Nom</th>
-            <th>Durée</th>
+            <th>{{__('message.name')}}</th>
+            <th>{{__('message.duration')}}</th>
           </tr>
           @foreach ($tasks as $task)
                     <tr>

@@ -25,11 +25,15 @@
 
                         <div class="dropdown ">
                             <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                             {{ app()->getLocale() }}
+                            
+                                {{ app()->getLocale()  }}
+                            
                             </button>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                              <a class="dropdown-item" href="{{ route(Route::currentRouteName(),'en') }}">englais</a>
-                              <a class="dropdown-item" href="{{ route(Route::currentRouteName(),'fr') }}">français</a>
+                              <a class="dropdown-item" href="{{ route(Route::currentRouteName(),'en') }}">Englais</a>
+                              <a class="dropdown-item" href="{{ route(Route::currentRouteName(),'fr') }}">Français</a>
+                              <a class="dropdown-item" href="{{ route(Route::currentRouteName(),'ar') }}">العربية</a>
+
 
                             </div>
                         </div>
@@ -52,7 +56,7 @@
 
                     <div class="search-box">
                         <i class="material-icons">&#xE8B6;</i>
-                        <input type="text" class="form-control" id="search" placeholder="Search&hellip;">
+                        <input type="text" class="form-control" id="search" placeholder="{{__('message.search')}}&hellip;">
                     </div>
 
                 </div>
@@ -60,9 +64,9 @@
             <table class="table table-striped table-hover table-bordered">
                 <thead>
                     <tr>
-                        <th>Name </th>
-                        <th>Duree</th>
-                        <th>Actions</th>
+                        <th>{{__('message.name')}} </th>
+                        <th>{{__('message.duration')}}</th>
+                        <th>{{__('message.actions')}}</th>
                     </tr>
                 </thead>
                 <tbody  class="table1" id="table1">
@@ -90,10 +94,10 @@
                     {!! $tasks->links() !!}
                 </div>
                 <div>
-                    <a href="{{route('generate',app()->getLocale())}}" class="btn btn-outline-secondary" >Exporter PDF</a>
-                    <a href="{{route('exportexcel',app()->getLocale())}}" class="btn btn-outline-secondary" >Exporter exel</a>
+                    <a href="{{route('generate',app()->getLocale())}}" class="btn btn-outline-secondary" >{{__('message.export_pdf')}}</a>
+                    <a href="{{route('exportexcel',app()->getLocale())}}" class="btn btn-outline-secondary" >{{__('message.export_excel')}}</a>
                     <button type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#exampleModal">
-                       Impoter data
+                        {{__('message.import_excel')}}
                       </button>
                  </div>
 
@@ -101,7 +105,7 @@
                     <div class="modal-dialog" role="document">
                       <div class="modal-content">
                         <div class="modal-header">
-                          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                          <h5 class="modal-title" id="exampleModalLabel">{{__('message.modal_title')}}</h5>
                           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                           </button>
@@ -115,8 +119,8 @@
                                 </div>
                         </div>
                         <div class="modal-footer">
-                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                          <button type="submit" class="btn btn-primary">Save changes</button>
+                          <button type="button" class="btn btn-secondary" data-dismiss="modal">{{__('message.close_btn')}}</button>
+                          <button type="submit" class="btn btn-primary">{{__('message.save')}}</button>
                         </div>
                       </div>
                     </form>

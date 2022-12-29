@@ -1,7 +1,7 @@
 <?php
 return[
-    'task'=>'Tâche',
-    '+add task'=>'+Ajouter tache',
+    'task'=>'مهمة',
+    '+add task'=>'+ إضافة مهمة',
     'all_briefs'=>'Tout les briefs',
     'name'=>'Nom',
     'description'=>'Description',

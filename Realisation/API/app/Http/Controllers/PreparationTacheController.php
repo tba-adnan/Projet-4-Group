@@ -14,7 +14,7 @@ use Maatwebsite\Excel\Facades\Excel;
 class PreparationTacheController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Display a listing of the resource with paginate.
      *
      * @return \Illuminate\Http\Response
      */
@@ -27,11 +27,23 @@ class PreparationTacheController extends Controller
     }
 
 
+    /**
+     * Filter task by briefs.
+     *@param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+
     public function filter_bief(Request $request){
         $task=PreparationTache::where('Preparation_brief_id','Like','%'.$request->filter.'%')->get();
         return response(['dataTask'=>$task]);
     }
 
+
+    /**
+     * search tasks by name.
+     *@param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
     public function search_tache(Request $request){
         $searchtask=PreparationTache::where('Nom_tache','Like','%'.$request->searchtask.'%')->get();
         return response(['search'=>$searchtask]);
@@ -68,7 +80,7 @@ class PreparationTacheController extends Controller
             'Preparation_brief_id'=>$request->Preparation_brief_id
         ]);
 
-        return to_route('task.index');
+        return to_route('task.index',app()->getLocale());
     }
 
     /**
@@ -116,7 +128,7 @@ class PreparationTacheController extends Controller
         $update->save();
 
 
-        return redirect('/task')->with('success');
+        return to_route('task.index',app()->getLocale());
     }
 
     /**
@@ -125,11 +137,11 @@ class PreparationTacheController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($id ,$language=null)
     {
         $delete = PreparationTache::findOrFail($id);
         $delete->delete();
-        return redirect('/task');
+        return to_route('task.index',app()->getLocale());
     }
 
      // export data format excel

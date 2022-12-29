@@ -2,9 +2,10 @@
 
 namespace App\Http\Middleware;
 
+use App;
 use Closure;
-use Illuminate\Support\Facades\Session;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class SetLocale
 {
@@ -18,6 +19,7 @@ class SetLocale
     public function handle(Request $request, Closure $next)
     {
        \App::setLocale($request->language);
+    //    dd($request);
         return $next($request);
     }
 }

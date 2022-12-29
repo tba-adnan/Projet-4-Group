@@ -1,7 +1,8 @@
 <?php
 
-use App\Http\Controllers\PreparationTacheController;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PreparationTacheController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,12 +23,18 @@ use Illuminate\Support\Facades\Route;
 
 
 
-Route::group(['prefix'=>'{language}'],function(){
-    Route::get('/', function () {
-        return view('welcome');
-    });
+Route::group(['prefix'=>"{language}"],function(){
+    // Route::get('/', function () {
+    //     return view('welcome');
+    // });
 
-    Route::resource('task', PreparationTacheController::class);
+    // Route::resource('task', PreparationTacheController::class);
+    Route::get('task',[PreparationTacheController::class,'index'])->name('task.index');
+    Route::get('task/create',[PreparationTacheController::class, 'create'])->name('task.create');
+    Route::post('task',[PreparationTacheController::class,'store'])->name('task.store');
+    Route::get('task/{id}/edit',[PreparationTacheController::class,'edit'])->name('task.edit');
+    Route::put('task/{id}',[PreparationTacheController::class,'update'])->name('task.update');
+    Route::delete('task/{id}',[PreparationTacheController::class,'destroy'])->name('task.destroy');
 
 
     Route::get('exportexcel',[PreparationTacheController::class,'exportexcel'])->name('exportexcel');
@@ -36,6 +43,6 @@ Route::group(['prefix'=>'{language}'],function(){
     route::get('/searchtache',[PreparationTacheController::class,'search_tache'])->name('searchtache');
     route::get('/generatepdf',[PreparationTacheController::class,'generatepdf'])->name('generate');
 
-
+    
 });
 
