@@ -22,4 +22,7 @@ class Apprenant extends Model
         "Date_naissance",
         "Image"
     ];
+    public function group(){
+        return $this->belongsToMany(Groupes::class);
+    }
 }

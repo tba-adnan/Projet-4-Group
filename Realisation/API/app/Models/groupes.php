@@ -19,4 +19,7 @@ class Groupes extends Model
         "Logo"
 
     ];
+    public function apprenant(){
+        return $this->belongsToMany(Apprenant::class);
+    }
 }

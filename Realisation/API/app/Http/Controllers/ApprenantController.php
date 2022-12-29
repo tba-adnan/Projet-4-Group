@@ -28,28 +28,21 @@ class ApprenantController extends Controller
         return view('apprenants.index',['groupes'=>$groupes,'apprenant'=>$apprenant]);
     }
     public function filter_group(Request $request){
-        // $apprenant=Apprenant::where('Preparation_brief_id','Like','%'.$request->filter.'%')->get();
-        // return response(['dataApprenet'=>$apprenant]);
-        // $id_groupe = GroupesApprenant::where('Groupe_id','Like','%'.$request->filter.'%')->get();
-
         $apprenants = DB::table('Apprenant')
-        ->selectRaw(
-            'Apprenant.Nom, 
-            Apprenant.Prenom,
-            Apprenant.id,
-            Groupes.id,
-            GroupesApprenant.Apprenant_id,
-            GroupesApprenant.Groupe_id'
-            )
-            
-            ->join('GroupesApprenant', 'Apprenant.id', '=', 'GroupesApprenant.Apprenant_id')
-            ->join('Groupes', 'GroupesApprenant.Groupe_id', '=', 'Groupes.id')
+        ->select("*" )
+            ->join('groupes_apprenant', 'Apprenant.id', '=', 'groupes_apprenant.Apprenant_id')
+            ->join('Groupes', 'groupes_apprenant.Groupe_id', '=', 'Groupes.id')
             ->where('Groupes.id','Like','%'.$request->filter.'%')
             ->get();
-            return response(['apprenants'=>$apprenants]); 
-            dd($request->filter);
+            // dd($apprenants);
+            return response(['dataapprenants'=>$apprenants]); 
+            
     }
+    public function search_apprenant(Request $request){
+        $searchapprenat=Apprenant::where('Nom','Like','%'.$request->searchapprenant.'%')->get();
+        return response(['searchapprenat'=>$searchapprenat]);
 
+    }
     /**
      * Show the form for creating a new resource.
      *
@@ -58,6 +51,7 @@ class ApprenantController extends Controller
     public function create()
     {
         $groupes=Groupes::all();
+        // 
         return view('apprenants.create',['groupes'=>$groupes]);
     }
 
@@ -79,8 +73,9 @@ class ApprenantController extends Controller
         //     'Date_naissance'=>'required',
         //     'Image'=>'required',
         // ]);
+        
         if($request->has('Image')){
-            $file=$request->Image;
+        $file=$request->Image;
         $Image=time(). '_' .$file->getClientOriginalName();
         $file->move(public_path('imageapprent'),$Image);
         }
@@ -145,12 +140,14 @@ class ApprenantController extends Controller
         // ]);
         
         
-        if($request->has('Image')){
-            $file=$request->Image;
+        if($request->has('Imagee')){
+            $file=$request->Imagee;
         $Image=time(). '_' .$file->getClientOriginalName();
         $file->move(public_path('imageapprent'),$Image);
         }
-
+        else{
+            $Image= $request->input("image");
+        }
         $update=Apprenant::findOrFail($id);
         $update->Nom=$request->get('Nom');
         $update->Prenom=$request->get('Prenom');

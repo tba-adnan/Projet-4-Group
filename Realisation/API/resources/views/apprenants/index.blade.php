@@ -124,6 +124,65 @@
             data:{'filter':$value},
             success:function(data){
                 console.log(data);
+                var apprenants=data.dataapprenants;
+                var html='';
+                if(apprenants.length>0){
+                    for(let i=0;i<apprenants.length;i++){
+                        html+=`<tr>
+                                    <td>${apprenants[i]['Image']}</td>
+                                    <td>${apprenants[i]['Nom']}</td>
+                                    <td>${apprenants[i]['Prenom']}</td>
+                                    <td><a  href="/apprenant/${apprenants[i]['id']}/edit" class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
+                                    <form method="post" action="/apprenant/${apprenants[i]['id']}">
+                                        <input type="hidden" name="_method" value="Delete">\
+                                        <input type="hidden" name="_token" value='{{ csrf_token() }}'>
+                                        <button id="trash-icon" type='submit'>
+                                    <a  class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
+                                </button></td>
+                                </tr>`;
+                    }
+                }
+                else{
+                    html+=`<tr>\
+                    <td>no apprenant</td>\
+                    </tr>`;
+                }
+                $('#table1').html(html);
+            }
+        });
+    })
+    $('#search').on('keyup',function(){
+            $value=$(this).val();
+            $.ajax({
+                type:'get',
+                url:'{{route("searchapprenant")}}',
+                data:{'searchapprenant':$value},
+                success:function(data){
+                    console.log(data);
+                    var apprenants=data.searchapprenat;
+                    var html='';
+                if(apprenants.length>0){
+                    for(let i=0;i<apprenants.length;i++){
+                        html+=`<tr>
+                                    <td>${apprenants[i]['Image']}</td>
+                                    <td>${apprenants[i]['Nom']}</td>
+                                    <td>${apprenants[i]['Prenom']}</td>
+                                    <td><a  href="/apprenant/${apprenants[i]['id']}/edit" class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
+                                    <form method="post" action="/apprenant/${apprenants[i]['id']}">
+                                        <input type="hidden" name="_method" value="Delete">\
+                                        <input type="hidden" name="_token" value='{{ csrf_token() }}'>
+                                        <button id="trash-icon" type='submit'>
+                                    <a  class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
+                                </button></td>
+                                </tr>`;
+                    }
+                }
+                else{
+                    html+='<tr>\
+                    <td>no tache</td>\
+                    </tr>';
+                }
+                $('#table1').html(html);
             }
         });
     })

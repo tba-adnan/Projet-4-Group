@@ -74,7 +74,10 @@
                             
                             <div class="form-group">
                                 <label class="text-muted" for="">Image</label>
-                                <input type="file" name="Image" id="Image" required >
+                                
+                                <img src="{{ asset('imageapprent')}}/{{ ($edit->Image) }}" alt="" width="80" height="80">
+                                <input type="hidden" name="image" value="{{ $edit->Image }}">
+                                <input type="file" name="Imagee" id="Imagee" value="{{$edit->Image}}" >
                             </div>
                             <div class="form-group">
                                 <label class="text-muted" for="">Group</label>
