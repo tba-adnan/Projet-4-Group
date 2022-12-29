@@ -61,7 +61,7 @@
                     </th>
                 </thead>
                 <tbody id="table1">
-                    @foreach ($apprenants as $student )
+                    @foreach ($apprenants as $student)
                     <tr>
                         <td>
                             <div class="form-check">
@@ -83,18 +83,18 @@
                 </div>
                 <div>
 
-                @foreach ($apprenants as $value )
+                {{-- @foreach ($apprenants as $value ) --}}
 
                     <form action="{{route('add.store')}}" method="post">
                         @csrf
-                        <input type="hidden" name="Apprenant_id" value="{{$value->id}}">
-                        <input type="hidden" name="Preparation_brief_id" value="{{$Preparation_brief_id}}">
+                        <input type="hidden" name="Apprenant_id" value="">
+                        <input type="hidden" name="Preparation_brief_id" value="">
                         <button type="submit" class="btn btn-outline-primary" data-toggle="modal" data-target="#exampleModal">
                            Affecter
                         </button>
                     </form>
                     
-                @endforeach
+                {{-- @endforeach --}}
 
                  </div>
             </div>

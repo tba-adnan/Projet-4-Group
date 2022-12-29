@@ -15,4 +15,13 @@ class ApprenantPreparationBrief extends Model
     "Preparation_brief_id",
     "Apprenant_id"
     ];
+
+    public function apprenantsBrief(){
+        return $this->belongsToMany(PreparationBrief::class);
+    }
+
+    public function briefsApprenant(){
+        return $this->belongsToMany(apprenant::class);
+    }
+
 }
