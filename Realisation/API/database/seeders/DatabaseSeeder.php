@@ -33,7 +33,7 @@ use Database\Factories\PreparationTacheFactory;
 class DatabaseSeeder extends Seeder
 {
   public function run (){
-  
+
     Formateur::factory(2)->create();
     AnneFormation::factory(2)->create();
     Groupes::factory(2)->create();
@@ -44,6 +44,6 @@ class DatabaseSeeder extends Seeder
     ApprenantPreparationBrief::factory(4)->create();
     ApprenantPreparationTache::factory(6)->create();
     GroupesPreparationBrief::factory(6)->create();
-
+    
   }
 }

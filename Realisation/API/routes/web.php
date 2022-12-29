@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\PreparationTacheController;
 use App\Http\Controllers\ApprenantPreparationBriefController;
+use App\Http\Controllers\GroupesApprenantController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -28,5 +29,7 @@ route::get('/generatepdf',[PreparationTacheController::class,'generatepdf'])->na
 
 
 
-Route::resource('assign', ApprenantPreparationBriefController::class);
-route::get('/filter_par_group',[ApprenantPreparationBriefController::class,'filter_par_group'])->name('filter_par_group');
+Route::resource('assign', GroupesApprenantController::class);
+Route::get('/filter_par_group',[GroupesApprenantController::class,'filter_par_group'])->name('filter_par_group');
+
+Route::resource('add', ApprenantPreparationBriefController::class);

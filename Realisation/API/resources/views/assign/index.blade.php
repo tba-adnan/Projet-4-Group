@@ -29,16 +29,18 @@
                 </div>
 
                 <div class="col-sm-12 d-flex flex-end p-3">
-                    <select class="custom-select">
-                        <option value="">select Brief</option>
+                    {{-- select and choose Brief--}}
+                    <select class="custom-select" >
+                        <option>Brief:</option>
                         @foreach ($brief as $value)
                                 <option value="{{$value->id}}">{{$value->Nom_du_brief}}</option>
                         @endforeach
                     </select>
+                    {{--  --}}
 
-                    {{--select and filter --}}
+                    {{--select and filter/Promotion--}}
                     <select class="btn btn-dark dropdown-toggle" name="filter" id="filter">
-                        <option value="">select Groupe</option>
+                        <option>select Groupe</option>
                         @foreach ($promo as $value)
                             <option value="{{$value->id}}">{{$value->Nom_groupe}}</option>
                         @endforeach
@@ -52,8 +54,9 @@
                 <thead class="table-primary">
                     <th>
                         <div class="form-check for-switch">
-                            <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
-                            <label class="form-check-label" for="flexSwitchCheckDefault"> Tous les Apprenants </label>
+                            <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" onclick='checkUncheck(this)'>
+                            <label class="form-check-label" for="flexSwitchCheckDefault"
+                            > Tous les Apprenants </label>
                         </div>
                     </th>
                 </thead>
@@ -62,7 +65,8 @@
                     <tr>
                         <td>
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                                <input class="form-check-input" type="checkbox" value="" id="defaultCheck1"
+                                name="student">
                                 <label class="form-check-label" for="defaultCheck1">
                                   {{ $student->Nom }} &nbsp; {{ $student->Prenom }}
                                 </label>
@@ -78,9 +82,20 @@
                     {!! $apprenants->links() !!}
                 </div>
                 <div>
-                    <button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#exampleModal">
-                       Affecter
-                    </button>
+
+                @foreach ($apprenants as $value )
+
+                    <form action="{{route('add.store')}}" method="post">
+                        @csrf
+                        <input type="hidden" name="Apprenant_id" value="{{$value->id}}">
+                        <input type="hidden" name="Preparation_brief_id" value="{{$Preparation_brief_id}}">
+                        <button type="submit" class="btn btn-outline-primary" data-toggle="modal" data-target="#exampleModal">
+                           Affecter
+                        </button>
+                    </form>
+                    
+                @endforeach
+
                  </div>
             </div>
         </div>
@@ -98,7 +113,7 @@
             success:function(data){
 
                 console.log(data);
-                
+
                 var apprenants=data.apprenants;
                 var html='';
 
@@ -107,7 +122,14 @@
 
                         html+=
                         '<tr>\
-                        <td>'+apprenants[i]['Nom']+' &nbsp; '+ apprenants[i]['Prenom']+'</td>\
+                            <td>\
+                                <div class="form-check">\
+                                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1" name="student">\
+                                    <label class="form-check-label" for="defaultCheck1">\
+                                        '+apprenants[i]['Nom']+' &nbsp; '+ apprenants[i]['Prenom']+'\
+                                    </label>\
+                            </div>\
+                            </td>\
                         </tr>';
                     }
                 }
@@ -120,6 +142,13 @@
             }
         });
     })
+
+    function checkUncheck(main) {
+        all = document.getElementsByName('student');
+        for(var a=0;a<all.length;a++){
+            all[a].checked =main.checked;
+        }
+    }
     </script>
 </body>
 </html>
