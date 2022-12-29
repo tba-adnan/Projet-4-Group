@@ -16,7 +16,6 @@ use App\Models\GroupesApprenant;
 use App\Models\GroupesPreparationBrief;
 use App\Models\PreparationBrief;
 use App\Models\PreparationTache;
-
 use Database\Factories\AnneFormationFactory;
 use Database\Factories\ApprenantFactory;
 use Database\Factories\ApprenantPreparationBriefFactory;

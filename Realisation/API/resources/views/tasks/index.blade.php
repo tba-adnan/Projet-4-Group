@@ -79,7 +79,7 @@
                 </div>
                 <div>
                     <a href="{{route('generate')}}" class="btn btn-outline-secondary" >Exporter PDF</a>
-                    <a href="/exportexcel" class="btn btn-outline-secondary" >Exporter excel</a>
+                    <a href="/exportexcel" class="btn btn-outline-secondary" >Exporter exel</a>
                     <button type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#exampleModal">
                        Impoter data
                       </button>
@@ -127,23 +127,17 @@
                 var html='';
                 if(task.length>0){
                     for(let i=0;i<task.length;i++){
-                        html+=`<tr>
-                                    <td>${task[i]['Nom_tache']}</td>
-                                    <td>${task[i]['Duree']}</td>
-                                    <td><a  href="/task/${task[i]['id']}/edit" class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
-                                    <form method="post" action="/task/${task[i]['id']}">
-                                        <input type="hidden" name="_method" value="Delete">\
-                                        <input type="hidden" name="_token" value='{{ csrf_token() }}'>
-                                        <button id="trash-icon" type='submit'>
-                                    <a  class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
-                                </button></td>
-                                </tr>`;
+                        html+='<tr>\
+                        <td>'+task[i]['Nom_tache']+'</td>\
+                        <td>'+task[i]['Description']+'</td>\
+                        <td>'+task[i]['Duree']+'</td>\
+                        </tr>';
                     }
                 }
                 else{
-                    html+=`<tr>\
+                    html+='<tr>\
                     <td>no tache</td>\
-                    </tr>`;
+                    </tr>';
                 }
                 $('#table1').html(html);
             }
@@ -161,17 +155,11 @@
                 var html='';
                 if(task.length>0){
                     for(let i=0;i<task.length;i++){
-                        html+=`<tr>
-                                    <td>${task[i]['Nom_tache']}</td>
-                                    <td>${task[i]['Duree']}</td>
-                                    <td><a  href="/task/${task[i]['id']}/edit" class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
-                                    <form method="post" action="/task/${task[i]['id']}">
-                                        <input type="hidden" name="_method" value="Delete">\
-                                        <input type="hidden" name="_token" value='{{ csrf_token() }}'>
-                                        <button id="trash-icon" type='submit'>
-                                    <a  class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
-                                </button></td>
-                                </tr>`;
+                        html+='<tr>\
+                        <td>'+task[i]['Nom_tache']+'</td>\
+                        <td>'+task[i]['Description']+'</td>\
+                        <td>'+task[i]['Duree']+'</td>\
+                        </tr>';
                     }
                 }
                 else{

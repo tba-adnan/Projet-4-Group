@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\PreparationTacheController;
+use App\Http\Controllers\ApprenantPreparationBriefController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -25,3 +26,7 @@ route::get('/filter_bief',[PreparationTacheController::class,'filter_bief'])->na
 route::get('/searchtache',[PreparationTacheController::class,'search_tache'])->name('searchtache');
 route::get('/generatepdf',[PreparationTacheController::class,'generatepdf'])->name('generate');
 
+
+
+Route::resource('assign', ApprenantPreparationBriefController::class);
+route::get('/filter_par_group',[ApprenantPreparationBriefController::class,'filter_par_group'])->name('filter_par_group');
