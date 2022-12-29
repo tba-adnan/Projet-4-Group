@@ -79,8 +79,8 @@
                     {!! $apprenant->links() !!}
                 </div>
                 <div>
-                    <a href="{{route('generate')}}" class="btn btn-outline-secondary" >Exporter PDF</a>
-                    <a href="/exportexcel" class="btn btn-outline-secondary" >Exporter excel</a>
+                    <a href="{{route('generatepdfapprenant')}}" class="btn btn-outline-secondary" >Exporter PDF</a>
+                    <a href="/exportexcelapprenant" class="btn btn-outline-secondary" >Exporter excel</a>
                     <button type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#exampleModal">
                        Impoter data
                       </button>
@@ -95,7 +95,7 @@
                             <span aria-hidden="true">&times;</span>
                           </button>
                         </div>
-                        <form action="/importexcel" method="POST" enctype="multipart/form-data">
+                        <form action="/importexcelapprenant" method="POST" enctype="multipart/form-data">
                         @csrf
 
                         <div class="modal-body">
@@ -115,6 +115,18 @@
         </div>
     </div>
 </div>
-          
+<script type="text/javascript">
+    $('#filter').on('change',function(){
+        $value=$(this).val();
+        $.ajax({
+            type:'get',
+            url:'{{route("filter_group")}}',
+            data:{'filter':$value},
+            success:function(data){
+                console.log(data);
+            }
+        });
+    })
+</script>        
 </body>
 </html>

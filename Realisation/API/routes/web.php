@@ -26,4 +26,9 @@ route::get('/filter_bief',[PreparationTacheController::class,'filter_bief'])->na
 route::get('/searchtache',[PreparationTacheController::class,'search_tache'])->name('searchtache');
 route::get('/generatepdf',[PreparationTacheController::class,'generatepdf'])->name('generate');
 Route::resource('apprenant', ApprenantController::class);
+route::get('/filter_group',[ApprenantController::class,'filter_group'])->name('filter_group');
+
+Route::get('exportexcelapprenant',[ApprenantController::class,'exportexcel'])->name('exportexcelapprenant');
+Route::post('importexcelapprenant',[ApprenantController::class,'importexcel'])->name('importexcelapprenant');
+route::get('/generatepdfapprenant',[ApprenantController::class,'generatepdf'])->name('generatepdfapprenant');
 
