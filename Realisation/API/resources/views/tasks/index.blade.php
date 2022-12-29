@@ -20,22 +20,34 @@
     <div class="table-responsive">
         <div class="table-wrapper">
             <div class="table-title">
-                <div class="row">
-                    <div class="col-sm-8"><h2>Taks</h2></div>
+                <div class="row d-flex justify-content-between">
+                    <div class="col-sm-8"><h2>{{ __('message.task') }}</h2></div>
+
+                        <div class="dropdown ">
+                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                             {{ app()->getLocale() }}
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                              <a class="dropdown-item" href="{{ route(Route::currentRouteName(),'en') }}">englais</a>
+                              <a class="dropdown-item" href="{{ route(Route::currentRouteName(),'fr') }}">français</a>
+
+                            </div>
+                        </div>
+                    </div>
 
                 </div>
                 <div class="col-sm-12 d-flex justify-content-between p-3">
                     <div class="d-flex justify-content-between">
-                        <a href="{{ route('task.create') }}" class="btn btn-primary">+add task</a>
-                        
-                        
+                        <a href="{{ route('task.create',app()->getLocale()) }}" class="btn btn-primary">{{ __('message.+add task') }}</a>
+
+
                         <select class="btn btn-secondary dropdown-toggle ml-2" name="filter" id="filter">
-                            <option value="">select brief</option>
+                            <option value="">{{ __('message.all_briefs') }}</option>
                             @foreach ($brief as $value)
                             <option value="{{$value->id}}">{{$value->Nom_du_brief}}</option>
                             @endforeach
                         </select>
-                        
+
                     </div>
 
                     <div class="search-box">
@@ -59,8 +71,8 @@
                         <td>{{ $task->Nom_tache }}</td>
                         <td>{{ $task->Duree }}</td>
                         <td>
-                            <a  href="{{ route('task.edit', $task->id)}}" class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
-                            <form action="{{ route('task.destroy', $task->id)}}" method="post">
+                            <a  href="{{ route('task.edit',[$task->id,app()->getLocale()] )}}" class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
+                            <form action="{{ route('task.destroy', [$task->id,app()->getLocale()])}}" method="post">
                                 @csrf
                                 @method('DELETE')
                                 <button id="trash-icon">
@@ -78,8 +90,8 @@
                     {!! $tasks->links() !!}
                 </div>
                 <div>
-                    <a href="{{route('generate')}}" class="btn btn-outline-secondary" >Exporter PDF</a>
-                    <a href="/exportexcel" class="btn btn-outline-secondary" >Exporter exel</a>
+                    <a href="{{route('generate',app()->getLocale())}}" class="btn btn-outline-secondary" >Exporter PDF</a>
+                    <a href="{{route('exportexcel',app()->getLocale())}}" class="btn btn-outline-secondary" >Exporter exel</a>
                     <button type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#exampleModal">
                        Impoter data
                       </button>
@@ -94,7 +106,7 @@
                             <span aria-hidden="true">&times;</span>
                           </button>
                         </div>
-                        <form action="/importexcel" method="POST" enctype="multipart/form-data">
+                        <form action="{{ route('importexcel',app()->getLocale()) }}" method="POST" enctype="multipart/form-data">
                         @csrf
 
                         <div class="modal-body">
@@ -119,7 +131,7 @@
         $value=$(this).val();
         $.ajax({
             type:'get',
-            url:'{{route("filter_bief")}}',
+            url:'{{route("filter_bief",app()->getLocale())}}',
             data:{'filter':$value},
             success:function(data){
                 console.log(data);
@@ -147,7 +159,7 @@
         $value=$(this).val();
         $.ajax({
             type:'get',
-            url:'{{route("searchtache")}}',
+            url:'{{route("searchtache",app()->getLocale())}}',
             data:{'searchtask':$value},
             success:function(data){
                 console.log(data);
@@ -171,7 +183,7 @@
             }
         })
     })
-    
+
     </script>
 </body>
 </html>

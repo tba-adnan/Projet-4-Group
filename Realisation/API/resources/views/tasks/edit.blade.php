@@ -22,7 +22,7 @@
         <div class="padding">
             <div class="row container d-flex justify-content-center">
     <div class="col-md-6 col-lg-6">
-                <form class="card" action="{{ route('task.update',$edit->id) }}" method="POST">
+                <form class="card" action="{{ route('task.update',[$edit->id,app()->getLocale()]) }}" method="POST">
                     @method('PUT')
                     @csrf
                   <h5 class="card-title d-flex justify-content-center fw-400">Modifier une tache </h5>
@@ -58,7 +58,7 @@
 
                             <div class="d-flex justify-content-between">
                                 <button class="btn  btn-primary">Enregirter</button>
-                                <a class="btn  btn-secondary" href="{{ route('task.index') }}">Annuler</a>
+                                <a class="btn  btn-secondary" href="{{ route('task.index',app()->getLocale()) }}">Annuler</a>
                             </div>
 
                         </div>
