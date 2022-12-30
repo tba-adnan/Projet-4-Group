@@ -26,7 +26,7 @@
                 </div>
                 <div class="col-sm-12 d-flex justify-content-between p-3">
                     <div class="d-flex justify-content-between">
-                        <a href="{{ route('apprenant.create') }}" class="btn btn-primary">+add Apprenent</a>
+                        <a href="{{ route('apprenant.create') }}" class="btn btn-primary">Ajouter apprenent</a>
                         
                         
                         <select class="btn btn-secondary dropdown-toggle ml-2" name="filter" id="filter">
@@ -165,7 +165,6 @@
                     for(let i=0;i<apprenants.length;i++){
                         html+=`<tr>
                                     <td> <img src="{{asset('./imageapprent')}}/${apprenants[i]['Image']}" alt="" width="80" height="80"></td>
-                                    <td>${apprenants[i]['Image']}</td>
                                     <td>${apprenants[i]['Nom']}</td>
                                     <td>${apprenants[i]['Prenom']}</td>
                                     <td><a  href="/apprenant/${apprenants[i]['id']}/edit" class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>

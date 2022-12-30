@@ -28,19 +28,20 @@ class ApprenantController extends Controller
         return view('apprenants.index',['groupes'=>$groupes,'apprenant'=>$apprenant]);
     }
     public function filter_group(Request $request){
-        if($request->has('filter')){
+        if($request->has('filter') && !empty($request->filter)){
             $apprenants = DB::table('Apprenant')
             ->select("*" )
                 ->join('groupes_apprenant', 'Apprenant.id', '=', 'groupes_apprenant.Apprenant_id')
                 ->join('Groupes', 'groupes_apprenant.Groupe_id', '=', 'Groupes.id')
                 ->where('Groupes.id','Like','%'.$request->filter.'%')
                 ->get();
-                // dd($apprenants);
+                
                 return response(['dataapprenants'=>$apprenants]); 
         }
         else{
             $apprenants=Apprenant::all();
             return response(['dataapprenants'=>$apprenants]);
+            dd($apprenants);
         }
             
     }
