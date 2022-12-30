@@ -4,17 +4,17 @@ namespace Database\Factories;
 
 
 use App\Models\Apprenant;
-use App\Models\ApprenantPreparationBrief;
+use App\Models\Brief;
 use App\Models\PreparationBrief;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\apprenant_preparation_brief>
  */
-class ApprenantPreparationBriefFactory extends Factory
+class BriefFactory extends Factory
 {
  
-    protected $model=ApprenantPreparationBrief::class;
+    protected $model=Brief::class;
     public function definition()
     {
         $preparationBrief =PreparationBrief::all()->pluck('id')->toArray();

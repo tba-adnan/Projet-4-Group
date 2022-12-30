@@ -17,7 +17,7 @@ return new class extends Migration
             $table->increments('id');
             
             $table->foreignId("Apprenant_preparation_brief_id")
-            ->constrained('apprenant_preparation_brief')
+            ->constrained('brief')
             ->onDelete('cascade');
 
             $table->unsignedInteger("Groupe_id")->nullable();

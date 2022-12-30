@@ -3,21 +3,21 @@
 namespace Database\Factories;
 
 use App\Models\Apprenant;
-use App\Models\ApprenantPreparationBrief;
-use App\Models\ApprenantPreparationTache;
+use App\Models\Brief;
 use App\Models\PreparationTache;
+use App\Models\Tache;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\apprenant_preparation_tache>
  */
-class ApprenantPreparationTacheFactory extends Factory
+class TacheFactory extends Factory
 {
-    protected $model=ApprenantPreparationTache::class;
+    protected $model=Tache::class;
     public function definition()
     {
         $preparationTache =PreparationTache::all()->pluck('id')->toArray();
-        $ApprenantPreparationBrief =ApprenantPreparationBrief::all()->pluck('id')->toArray();
+        $ApprenantPreparationBrief =Brief::all()->pluck('id')->toArray();
         $apprenant =Apprenant::all()->pluck('id')->toArray();
 
         return [
