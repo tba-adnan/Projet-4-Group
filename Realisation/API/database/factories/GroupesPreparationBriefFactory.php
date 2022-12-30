@@ -2,7 +2,8 @@
 
 namespace Database\Factories;
 
-use App\Models\ApprenantPreparationBrief;
+
+use App\Models\Brief;
 use App\Models\Groupes;
 use App\Models\GroupesPreparationBrief;
 use Illuminate\Database\Eloquent\Factories\Factory;
@@ -15,7 +16,7 @@ class GroupesPreparationBriefFactory extends Factory
     protected $model=GroupesPreparationBrief::class;
     public function definition()
     {
-        $ApprenantPreparationBrief =ApprenantPreparationBrief::all()->pluck('id')->toArray();
+        $ApprenantPreparationBrief =Brief::all()->pluck('id')->toArray();
         $groupe =Groupes::all()->pluck('id')->toArray();
         return [
             "Apprenant_preparation_brief_id"=>$this->faker->randomElement($ApprenantPreparationBrief),

@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('apprenant_preparation_brief', function (Blueprint $table) {
+        Schema::create('brief', function (Blueprint $table) {
             $table->id();
             $table->date('Date_affectation')->nullable();
             $table->unsignedInteger("Preparation_brief_id")->nullable();
@@ -30,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('apprenant_preparation_brief');
+        Schema::dropIfExists('brief');
     }
 };
