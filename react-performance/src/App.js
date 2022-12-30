@@ -21,7 +21,7 @@ function App() {
     </div>
   );
 }
-const Counter = React.memo(function Counter({ name, value }) {
+const Counter = React.memo(function Count({ name, value }) {
   console.log(`Rendering counter ${name}`);
   return (
     <div>
