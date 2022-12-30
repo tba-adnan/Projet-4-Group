@@ -84,11 +84,11 @@ return [
 
     'locale' => 'fr',
 
-    'available_locales' => [
-        'English' => 'en',
-        'Arab' => 'ar',
-        'French' => 'fr',
-      ],
+    // 'available_locales' => [
+    //     'English' => 'en',
+    //     'Arab' => 'ar',
+    //     'French' => 'fr',
+    //   ],
 
     /*
     |--------------------------------------------------------------------------

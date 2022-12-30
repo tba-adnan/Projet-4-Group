@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PreparationTacheController;
+use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,10 +24,8 @@ use App\Http\Controllers\PreparationTacheController;
 
 
 
-Route::group(['prefix'=>"{language}"],function(){
-    // Route::get('/', function () {
-    //     return view('welcome');
-    // });
+Route::group(['prefix'=>LaravelLocalization::setLocale(),'middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath' ]],function(){
+   
 
     // Route::resource('task', PreparationTacheController::class);
     Route::get('task',[PreparationTacheController::class,'index'])->name('task.index');

@@ -80,7 +80,7 @@ class PreparationTacheController extends Controller
             'Preparation_brief_id'=>$request->Preparation_brief_id
         ]);
 
-        return to_route('task.index',app()->getLocale());
+        return to_route('task.index');
     }
 
     /**
@@ -128,7 +128,7 @@ class PreparationTacheController extends Controller
         $update->save();
 
 
-        return to_route('task.index',app()->getLocale());
+        return to_route('task.index');
     }
 
     /**
@@ -141,7 +141,7 @@ class PreparationTacheController extends Controller
     {
         $delete = PreparationTache::findOrFail($id);
         $delete->delete();
-        return to_route('task.index',app()->getLocale());
+        return to_route('task.index');
     }
 
      // export data format excel

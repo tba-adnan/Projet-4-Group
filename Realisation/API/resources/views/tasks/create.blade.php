@@ -26,7 +26,7 @@
         <div class="padding">
             <div class="row container d-flex justify-content-center">
     <div class="col-md-6 col-lg-6">
-                <form class="card" action="{{ route('task.store',app()->getLocale()) }}" method="POST">
+                <form class="card" action="{{ route('task.store') }}" method="POST">
                     @csrf
                   <h5 class="card-title d-flex justify-content-center fw-400">{{__('message.add_task')}}</h5>
               <div class="card-body">
@@ -44,7 +44,7 @@
                             </div>
                             <div class="form-group">
                                 <label class="text-muted" for="">{{__('message.duration')}}</label>
-                                <input class="form-control rounded" type="text" value="{{old('Duree')}}"name="Duree">
+                                <input class="form-control rounded" type='number' value="{{old('Duree')}}"name="Duree">
                                 @error('Duree')
                                     <label style="color: red;">{{$message}}</label>
                                 @enderror
@@ -61,7 +61,7 @@
 
                             <div class="d-flex justify-content-between">
                                 <button class="btn  btn-primary">{{__('message.add')}}</button>
-                                <a class="btn  btn-secondary" href="{{ route('task.index',app()->getLocale()) }}">{{__('message.cancel')}}</a>
+                                <a class="btn  btn-secondary" href="{{ route('task.index') }}">{{__('message.cancel')}}</a>
                             </div>
 
                         </div>

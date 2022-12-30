@@ -26,14 +26,16 @@
                         <div class="dropdown ">
                             <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             
-                                {{ app()->getLocale()  }}
+                               {{app()->getLocale()}}
                             
                             </button>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                              <a class="dropdown-item" href="{{ route(Route::currentRouteName(),'en') }}">Englais</a>
-                              <a class="dropdown-item" href="{{ route(Route::currentRouteName(),'fr') }}">Français</a>
-                              <a class="dropdown-item" href="{{ route(Route::currentRouteName(),'ar') }}">العربية</a>
+                                @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
 
+                              <a class="dropdown-item" rel="alternate"  href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}"> {{ $properties['native'] }}</a>
+                             
+                              
+                          @endforeach
 
                             </div>
                         </div>
@@ -42,7 +44,7 @@
                 </div>
                 <div class="col-sm-12 d-flex justify-content-between p-3">
                     <div class="d-flex justify-content-between">
-                        <a href="{{ route('task.create',app()->getLocale()) }}" class="btn btn-primary">{{ __('message.+add task') }}</a>
+                        <a href="{{ route('task.create') }}" class="btn btn-primary">{{ __('message.+add task') }}</a>
 
 
                         <select class="btn btn-secondary dropdown-toggle ml-2" name="filter" id="filter">
@@ -75,8 +77,8 @@
                         <td>{{ $task->Nom_tache }}</td>
                         <td>{{ $task->Duree }}</td>
                         <td>
-                            <a  href="{{ route('task.edit',[$task->id,app()->getLocale()] )}}" class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
-                            <form action="{{ route('task.destroy', [$task->id,app()->getLocale()])}}" method="post">
+                            <a  href="{{ route('task.edit',$task->id )}}" class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
+                            <form action="{{ route('task.destroy',$task->id)}}" method="post">
                                 @csrf
                                 @method('DELETE')
                                 <button id="trash-icon">
@@ -94,8 +96,8 @@
                     {!! $tasks->links() !!}
                 </div>
                 <div>
-                    <a href="{{route('generate',app()->getLocale())}}" class="btn btn-outline-secondary" >{{__('message.export_pdf')}}</a>
-                    <a href="{{route('exportexcel',app()->getLocale())}}" class="btn btn-outline-secondary" >{{__('message.export_excel')}}</a>
+                    <a href="{{route('generate')}}" class="btn btn-outline-secondary" >{{__('message.export_pdf')}}</a>
+                    <a href="{{route('exportexcel')}}" class="btn btn-outline-secondary" >{{__('message.export_excel')}}</a>
                     <button type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#exampleModal">
                         {{__('message.import_excel')}}
                       </button>
@@ -110,7 +112,7 @@
                             <span aria-hidden="true">&times;</span>
                           </button>
                         </div>
-                        <form action="{{ route('importexcel',app()->getLocale()) }}" method="POST" enctype="multipart/form-data">
+                        <form action="{{ route('importexcel') }}" method="POST" enctype="multipart/form-data">
                         @csrf
 
                         <div class="modal-body">

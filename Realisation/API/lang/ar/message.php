@@ -1,26 +1,25 @@
 <?php
 return[
     'task'=>'مهمة',
-    '+add task'=>'+ إضافة مهمة',
-    'all_briefs'=>'Tout les briefs',
-    'name'=>'Nom',
-    'description'=>'Description',
-    'duration'=>'Durée',
-    'actions'=>'Actions',
-    'export_pdf'=>'Exporter PDF',
-    'import_excel'=>'Importer excel',
-    'export_excel'=>'Exporter excel',
-    'search'=>'Rechercher',
-    'modal_title'=>'Téléchargez votre fichier',
-    'close_btn'=>'Fermer',
-    'save'=>'Enregirter',
-    'title_edit'=>'Modifier une tâche',
-    'cancel'=>'Annuler',
-    'add_task'=>'Ajouter une tache',
-    'select_brief'=>'sélectionner brief',
-    'add'=>'Ajouter',
-    'pdf_title'=>'To do-list
-    '
+    '+add task'=>'إضافة مهمة',
+    'all_briefs'=>' جميع المشاريع',
+    'name'=>'اسم',
+    'description'=>'وصف',
+    'duration'=>'مدة',
+    'actions'=>'إجراءات',
+    'export_pdf'=>'تصدير PDF',
+    'import_excel'=>'استيراد Excel',
+    'export_excel'=>' تصدير Excel',
+    'search'=>'البحث',
+    'modal_title'=>'تحميل الملف',
+    'close_btn'=>'إغلاق',
+    'save'=>'حفظ',
+    'title_edit'=>'عدل عنوان المهمة',
+    'cancel'=>'إلغاء',
+    'add_task'=>' أضف مهمة',
+    'select_brief'=>' اختر مشروعا',
+    'add'=>'أضف',
+    'pdf_title'=>'عنوان PDF'
 
 
 
