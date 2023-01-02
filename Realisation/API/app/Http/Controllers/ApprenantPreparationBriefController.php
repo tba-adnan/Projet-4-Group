@@ -11,17 +11,15 @@ use App\Models\PreparationBrief;
 
 class ApprenantPreparationBriefController extends Controller
 {
-
-    public function store(Request $request)
-    {
-        if (is_null(PreparationBrief::find($request->Preparation_brief_id)->briefsApprenant()->find($request->Apprenant_id))) {
-
-            $assign = ApprenantPreparationBrief::create([
-                'Apprenant_id' => $request->Apprenant_id,
-                'Preparation_brief_id' => $request->Preparation_brief_id
-            ]);
-        }
-        return back();
-    }
+    // public function store(Request $request)
+    // {
+    //     if (is_null(PreparationBrief::find($request->Preparation_brief_id)->briefsApprenant()->find($request->Apprenant_id))) {
+    //         $assign = ApprenantPreparationBrief::create([
+    //             'Apprenant_id' => $request->Apprenant_id,
+    //             'Preparation_brief_id' => $request->Preparation_brief_id
+    //         ]);
+    //     }
+    //     return back();
+    // }
 
 }

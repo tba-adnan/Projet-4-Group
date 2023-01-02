@@ -1,10 +1,8 @@
 <?php
 
-use App\Http\Controllers\PreparationTacheController;
-use App\Http\Controllers\ApprenantPreparationBriefController;
-use App\Http\Controllers\GroupesApprenantController;
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\PreparationTacheController;
+use App\Http\Controllers\GroupesApprenantController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -31,5 +29,4 @@ route::get('/generatepdf',[PreparationTacheController::class,'generatepdf'])->na
 
 Route::resource('assign', GroupesApprenantController::class);
 Route::get('/filter_par_group',[GroupesApprenantController::class,'filter_par_group'])->name('filter_par_group');
-
-Route::resource('add', ApprenantPreparationBriefController::class);
+Route::post('form', [GroupesApprenantController::class,'form_save'])->name('form');

@@ -1,17 +1,14 @@
 <?php
 
 namespace App\Http\Controllers;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 use App\Models\PreparationBrief;
 use App\Models\groupes;
 use App\Models\apprenant;
-
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
-
 use App\Models\ApprenantPreparationBrief;
 use App\Models\GroupesApprenant;
-
 
 
 class GroupesApprenantController extends Controller
@@ -34,6 +31,30 @@ class GroupesApprenantController extends Controller
             ->get();
         return response(['apprenants'=>$apprenants]);
     }
+    
+    // public function getDateAttribute($value)
+    // {
+    //     $date = date('Y-m-d',strtotime($value));
+    //     return $date;   // return  2023-01-02
+    // }
+    
+    public function form_save(Request $request)
+    {           
+        $Date_affectation= $timestamps();
+        
+        foreach($request->checkbox as $key=>$name){
 
+            $assign = ApprenantPreparationBrief::create([
+                'Apprenant_id' => $request->Apprenant_id,
+                'Preparation_brief_id' => $request->Preparation_brief_id
+            ]);
 
+            // $insert =[
+            //     'Apprenant_id' =>$request->checkbox[$key],
+            // ];
+            // DB::table('apprenant_preparation_brief')->insert('$insert');
+        }
+
+        return redirect()->back();
+    }
 }
