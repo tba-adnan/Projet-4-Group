@@ -84,7 +84,9 @@ const selectBrief=(e)=>{
       },
     });
 
-    const studentprogress_bar = <ProgressBar now={ApprenantAV.map((value) => value.Percentage )} label={`${ApprenantAV.map((value) => value.Percentage )}%`} />
+
+    // const studentprogress_bar = <ProgressBar now={ApprenantAV.map((value) => value.Percentage )} label={`${ApprenantAV.map((value) => value.Percentage )}%`} />
+    const studentprogress_bar = <ProgressBar now={ApprenantAV.map((value) => value.Percentage )}  />
     const ApprenantImage = ChartApprenant.getUrl();
     return(
         <div className="">

@@ -7,7 +7,7 @@ export default class Briefprogress extends React.Component {
     state = {};
     async componentDidMount(){
       const request = await axios.get('http://127.0.0.1:8000/api/AvancementBrief/2')
-      // const list = request.data.map((item) => console.log(item.Percentage))
+      const list = request.data.map((item) => console.log(item.Percentage))
       const liststate = request.data.map((item) => this.setState({progress:item.Percentage})) 
       
     }
