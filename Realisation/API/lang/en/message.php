@@ -1,5 +1,6 @@
 <?php
 return[
+    'btn_taskManag'=>'Task management',
     'title'=>'Task management',
     'task'=>'Task list',
     '+add task'=>'Add task',
@@ -20,7 +21,9 @@ return[
     'add_task'=>'Add a task',
     'select_brief'=>'select brief',
     'add'=>'Add',
-    'pdf_title'=>'Liste des tâches'
+    'pdf_title'=>'Liste des tâches',
+    'brief'=>'brief',
+    'edit_task'=>'Edit Tasks'
 
 ]
 

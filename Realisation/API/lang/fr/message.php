@@ -1,5 +1,6 @@
 <?php
 return[
+    'btn_taskManag'=>'Gestion des tâches',
     'title'=>'Gestion des tâches',
     'task'=>'Liste de tâches',
     '+add task'=>'Ajouter tache',
@@ -20,8 +21,9 @@ return[
     'add_task'=>'Ajouter une tache',
     'select_brief'=>'sélectionner brief',
     'add'=>'Ajouter',
-    'pdf_title'=>'To do-list
-    '
+    'pdf_title'=>'To do-list',
+    'brief'=>'brief',
+    'edit_task'=>'Modifier les tâches'
 
 
 
