@@ -1,35 +1,27 @@
-import logo from './logo.svg';
-import React from 'react';
+import React ,{useState, useCallback} from 'react';
 import './App.css';
+import Child from './components/Child';
 
 function App() {
-  const [counterA, setCounterA] = React.useState(0);
-  const [counterB, setCounterB] = React.useState(0);
+ 
+const [count, setCount]= useState(0);
+const[user , setUser]=useState("");
+
+
+ const updateCount = useCallback(()=>setCount(count+1),[count]);
 
   return (
-    <div>
-      <Counter name="A" value={counterA} />
-      <Counter name="B" value={counterB} />
-      <button
-        onClick={() => {
-          console.log("Click button");
-          setCounterA(counterA + 1);
-        }}
-      >
-        Increment counter A
-      </button>
-    </div>
-  );
-}
-const Counter = React.memo(function Count({ name, value }) {
-  console.log(`Rendering counter ${name}`);
-  return (
-    <div>
-      {name}: {value}
-    </div>
-  );
-});
 
-
+    <div className='App'>
+      <h1> hook [useMemo - useCallback]</h1>
+      {count}
+       <button onClick={()=>setCount(count+1)}>Add one</button>
+       <input type="text" onChange={(e)=>setUser(e.target.value)}></input>
+       <Child  count={count} updateCount={updateCount}  />
+    </div>
+  )
+    
+  }
 
 export default App;
+  
