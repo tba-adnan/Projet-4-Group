@@ -9,6 +9,7 @@ use App\Exports\TaskExport;
 use App\Imports\TaskImport;
 use App\Models\Task;
 use Barryvdh\DomPDF\Facade\Pdf;
+use Illuminate\Contracts\Pagination\Paginator;
 use Maatwebsite\Excel\Facades\Excel;
 
 class PreparationTacheController extends Controller
@@ -21,14 +22,21 @@ class PreparationTacheController extends Controller
     public function index()
     {
         $brief=PreparationBrief::all();
+        $count =PreparationTache::count();
+      
         $tasks =PreparationTache::paginate(3);
-        // dd($tasks);
+        
+        // $pagination = PreparationTache::paginate($tasks);
+
+        // $tasks =PreparationTache::count();
+        // dd($count);
         return view('tasks.index',['brief'=>$brief,'tasks'=>$tasks]);
     }
 
 
     public function filter_bief(Request $request){
         $task=PreparationTache::where('Preparation_brief_id','Like','%'.$request->filter.'%')->get();
+        // $task =PreparationTache::paginate(3);
         return response(['dataTask'=>$task]);
     }
 
