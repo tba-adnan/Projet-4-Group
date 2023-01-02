@@ -50,7 +50,7 @@ class GroupesController extends Controller
         ]);
         Groupes::create([
 
-            'Nom_tache'=>$request->Nom_tache,
+            'Nom_groupe'=>$request->Nom_groupe,
             'Description'=>$request->Description,
             'Duree'=>$request->Duree,
             'Preparation_brief_id'=>$request->Preparation_brief_id
@@ -143,12 +143,12 @@ class GroupesController extends Controller
         return $pdf->download('groupes.pdf');
     }
     
-        public function filter_bief(Request $request){
+        public function filter_formatuer(Request $request){
             $task=Groupes::where('Preparation_brief_id','Like','%'.$request->filter.'%')->get();
             return response(['dataTask'=>$task]);
         }
     
-        public function search_tache(Request $request){
+        public function search_group(Request $request){
             $searchtask=Groupes::where('Nom_tache','Like','%'.$request->searchtask.'%')->get();
             return response(['search'=>$searchtask]);
     

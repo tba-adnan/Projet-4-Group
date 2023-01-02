@@ -26,9 +26,9 @@
         <div class="padding">
             <div class="row container d-flex justify-content-center">
     <div class="col-md-6 col-lg-6">
-                <form class="card" action="{{ route('task.store') }}" method="POST">
+                <form class="card" action="{{ route('group.store') }}" method="POST">
                     @csrf
-                  <h5 class="card-title d-flex justify-content-center fw-400">Ajouter une tache</h5>
+                  <h5 class="card-title d-flex justify-content-center fw-400">Ajouter une group</h5>
               <div class="card-body">
                             <div class="form-group">
                                 <label class="text-muted" for="">Nom</label>
@@ -61,7 +61,7 @@
                             
                             <div class="d-flex justify-content-between">
                                 <button class="btn  btn-primary">Ajouter</button>
-                                <a class="btn  btn-secondary" href="{{ route('task.index') }}">Anner</a>
+                                <a class="btn  btn-secondary" href="{{ route('group.index') }}">Anner</a>
                             </div>
 
                         </div>

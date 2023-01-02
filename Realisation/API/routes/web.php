@@ -15,10 +15,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+Route::get('/',[PreparationTacheController::class,'index'])->name('index');
 Route::resource('task', PreparationTacheController::class);
 Route::get('exportexcel',[PreparationTacheController::class,'exportexcel'])->name('exportexcel');
 Route::post('importexcel',[PreparationTacheController::class,'importexcel'])->name('importexcel');
@@ -32,7 +32,7 @@ Route::resource('group', GroupesController::class);
 Route::controller(GroupesController::class)->group(function(){
 Route::get('exportexcel','exportexcel')->name('exportexcel');
 Route::post('importexcel','importexcel')->name('importexcel');
-route::get('/filter_bief','filter_bief')->name('filter_bief');
-route::get('/searchtache','search_tache')->name('searchtache');
+route::get('/filter_formatuer','filter_formatuer')->name('filter_formatuer');
+route::get('/search_group','search_group')->name('search_group');
 route::get('/generatepdf','generatepdf')->name('generate');
 });
