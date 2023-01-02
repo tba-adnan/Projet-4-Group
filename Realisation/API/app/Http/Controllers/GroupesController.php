@@ -104,7 +104,7 @@ class GroupesController extends Controller
         $update->save();
 
 
-        return redirect('/task')->with('success');
+        return redirect('/group')->with('success');
     }
 
     /**
@@ -117,7 +117,7 @@ class GroupesController extends Controller
     {
         $delete = Groupes::findOrFail($id);
         $delete->delete();
-        return redirect('/task');
+        return redirect('/group');
     }
 
      // export data format excel
