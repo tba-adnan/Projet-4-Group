@@ -9,13 +9,8 @@
           </div>
           {{-- <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-<<<<<<< HEAD
-              <li class="breadcrumb-item"><a href="/">Home</a></li>
-              
-=======
               <li class="breadcrumb-item"><a href="/">Tasks</a></li>
 
->>>>>>> 2353b6fd0af25efe3342eaa061de268c9a3875aa
             </ol>
           </div> --}}
         </div>

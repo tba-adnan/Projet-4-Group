@@ -39,20 +39,11 @@
           <!-- Notifications Dropdown Menu -->
        
            
-<<<<<<< HEAD
           <li class="nav-item">
             <a class="nav-link" data-widget="fullscreen" href="#" role="button">
               <i class="fas fa-expand-arrows-alt"></i>
             </a>
           </li>
         
-=======
-          
-          {{-- <li class="nav-item">
-            <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button">
-              <i class="fas fa-th-large"></i>
-            </a>
-          </li> --}}
->>>>>>> 2353b6fd0af25efe3342eaa061de268c9a3875aa
         </ul>
       </nav>
