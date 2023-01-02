@@ -9,7 +9,10 @@
 @include('layouts/sidebar')
 
   <!-- Content Wrapper. Contains page content -->
-@yield('content')           
+@yield('content') 
+@yield('AddTask') 
+@yield('editTask')
+
   <!-- /.content-wrapper -->
 @include('layouts/footer')
 
