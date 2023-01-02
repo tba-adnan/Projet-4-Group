@@ -18,7 +18,7 @@
 ```sh
 (en utilisant la ligne de commande dans le répertoire API)
 
-> copy .example.env
+> copy .example.env .env
 ```
 
 3. Modifiez le fichier .env en ajoutant l'adresse de la base de données (ip ou domaine), le nom d'utilisateur et le mot de passe.
