@@ -1,27 +1,32 @@
-import React ,{useState, useCallback} from 'react';
-import './App.css';
-import Child from './components/Child';
+import React from "react";
+import ReactDOM from "react-dom";
+import { Count } from "./components/Count";
+
+
 
 function App() {
- 
-const [count, setCount]= useState(0);
-const[user , setUser]=useState("");
+  const [text, setText] = React.useState("");
+  const [text2, setText2] = React.useState("");
 
-
- const updateCount = useCallback(()=>setCount(count+1),[count]);
+  const onOdd = React.useCallback(() => setText(""), [setText]);
+  const data = React.useMemo(
+    () => ({
+      text2,
+      isEven: text2.length % 2 === 0
+    }),
+    [text2]
+  );
 
   return (
-
-    <div className='App'>
-      <h1> hook [useMemo - useCallback]</h1>
-      {count}
-       <button onClick={()=>setCount(count+1)}>Add one</button>
-       <input type="text" onChange={(e)=>setUser(e.target.value)}></input>
-       <Child  count={count} updateCount={updateCount}  />
+    <div className="App">
+      <input value={text} onChange={e => setText(e.target.value)} />
+      <input
+        placeholder="text2"
+        value={text2}
+        onChange={e => setText2(e.target.value)}
+      />
+      <Count onOdd={onOdd} data={data} />
     </div>
-  )
-    
-  }
-
+  );
+}
 export default App;
-  
