@@ -1,5 +1,6 @@
 <?php
 return[
+    'btn_taskManag'=>'ادارة المهام',
     'title'=>'ادارة المهام',
     'task'=>'قائمة المهام ',
     '+add task'=>'إضافة مهمة',
@@ -20,7 +21,10 @@ return[
     'add_task'=>' أضف مهمة',
     'select_brief'=>' اختر مشروعا',
     'add'=>'أضف',
-    'pdf_title'=>'عنوان PDF'
+    'pdf_title'=>'عنوان PDF',
+    'brief'=>'مشروع',
+    'edit_task'=>' تعديل المهمة'
+
 
 ]
 
