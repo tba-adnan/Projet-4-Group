@@ -6,14 +6,19 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Gestion des taches</h1>
+            <h1>{{__('message.title')}}</h1>
           </div>
-          <div class="col-sm-6">
+          {{-- <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
+<<<<<<< HEAD
               {{-- <li class="breadcrumb-item"><a href="#">Home</a></li> --}}
               
+=======
+              <li class="breadcrumb-item"><a href="#">Home</a></li>
+
+>>>>>>> 2353b6fd0af25efe3342eaa061de268c9a3875aa
             </ol>
-          </div>
+          </div> --}}
         </div>
       </div>
     </section>
@@ -22,21 +27,21 @@
         <div class="table-wrapper">
             <div class="table-title">
                 <div class="row">
-                    <div class="col-sm-8"><h2>Taks</h2></div>
+                    <div class="col-sm-8"><h2>{{__('message.task')}}</h2></div>
 
                 </div>
                 <div class="col-sm-12 d-flex justify-content-between p-3">
                     <div class="d-flex justify-content-between">
-                        <a href="{{ route('task.create') }}" class="btn btn-primary">+add task</a>
-                        
-                        
+                        <a href="{{ route('task.create') }}" class="btn btn-primary">{{__('message.+add task')}}</a>
+
+
                         <select class="btn btn-secondary dropdown-toggle ml-2" name="filter" id="filter">
-                            <option value="">select brief</option>
+                            <option value="">{{__('message.all_briefs')}}</option>
                             @foreach ($brief as $value)
                             <option value="{{$value->id}}">{{$value->Nom_du_brief}}</option>
                             @endforeach
                         </select>
-                        
+
                     </div>
 
                     <div class="search-box">
@@ -46,13 +51,13 @@
 
                 </div>
             </div>
-  
+
     <table class="table table-striped table-hover table-bordered">
       <thead>
           <tr>
-              <th>Name </th>
-              <th>Duree</th>
-              <th>Actions</th>
+              <th>{{__('message.name')}}</th>
+              <th>{{__('message.duration')}}</th>
+              <th>{{__('message.actions')}}</th>
           </tr>
       </thead>
       <tbody  class="table1" id="table1">
@@ -75,18 +80,18 @@
 
       </tbody>
   </table>
- 
- 
- 
+
+
+
   <div class="d-flex justify-content-between">
       <div class="d-flex justify-content-start">
           {!! $tasks->links() !!}
       </div>
       <div>
-          <a href="{{route('generate')}}" class="btn btn-outline-secondary" >Exporter PDF</a>
-          <a href="/exportexcel" class="btn btn-outline-secondary" >Exporter exel</a>
+          <a href="{{route('generate')}}" class="btn btn-outline-secondary" >{{__('message.export_pdf')}}</a>
+          <a href="/exportexcel" class="btn btn-outline-secondary" >{{__('message.export_excel')}}</a>
           <button type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#exampleModal">
-             Impoter data
+            {{__('message.import_excel')}}
             </button>
        </div>
 
@@ -94,7 +99,7 @@
           <div class="modal-dialog" role="document">
             <div class="modal-content">
               <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                <h5 class="modal-title" id="exampleModalLabel">{{__('message.modal_title')}}</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
                 </button>
@@ -108,8 +113,8 @@
                       </div>
               </div>
               <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="submit" class="btn btn-primary">Save changes</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">{{__('message.close_btn')}}</button>
+                <button type="submit" class="btn btn-primary">{{__('message.save')}}</button>
               </div>
             </div>
           </form>
@@ -156,7 +161,7 @@
             }
         })
     })
-  
+
     $('#filter').on('change',function(){
           $value=$(this).val();
           $.ajax({
@@ -191,9 +196,13 @@
               }
           });
       })
-    
+
     </script>
+<<<<<<< HEAD
 
 
 
 @endsection
+=======
+@endsection
+>>>>>>> 2353b6fd0af25efe3342eaa061de268c9a3875aa

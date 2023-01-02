@@ -18,7 +18,7 @@
     </div> --}}
 
     <!-- SidebarSearch Form -->
- 
+
 
     <!-- Sidebar Menu -->
     <nav class="mt-2">
@@ -30,12 +30,12 @@
           <a href="/" class="nav-link active">
             <i class="nav-icon fas fa-table"></i>
             <p>
-              Gestion des taches
+              {{__('message.btn_taskManag')}}
               {{-- <i class="fas fa-angle-left right"></i> --}}
             </p>
           </a>
-         
-     
+
+
       </ul>
     </nav>
     <!-- /.sidebar-menu -->
