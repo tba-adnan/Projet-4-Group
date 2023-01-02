@@ -14,12 +14,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    // return view('welcome');
-    redirect('/task');
-});
+
 
 Route::resource('task', PreparationTacheController::class);
+Route::get('/',[PreparationTacheController::class,'index'])->name('index');
 Route::get('exportexcel',[PreparationTacheController::class,'exportexcel'])->name('exportexcel');
 Route::post('importexcel',[PreparationTacheController::class,'importexcel'])->name('importexcel');
 route::get('/filter_bief',[PreparationTacheController::class,'filter_bief'])->name('filter_bief');
