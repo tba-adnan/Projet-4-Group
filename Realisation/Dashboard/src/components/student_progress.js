@@ -3,6 +3,7 @@ import axios from "axios";
 import QuickChart from "quickchart-js";
 import { useEffect, useState } from "react";
 import { useCallback } from "react";
+import { ProgressBar } from "react-bootstrap";
 
 function AvancementApprenant(props){
     
@@ -82,7 +83,8 @@ const selectBrief=(e)=>{
         },
       },
     });
-  
+
+    const studentprogress_bar = <ProgressBar now={ApprenantAV.map((value) => value.Percentage )} label={`${ApprenantAV.map((value) => value.Percentage )}%`} />
     const ApprenantImage = ChartApprenant.getUrl();
     return(
         <div className="">
@@ -96,15 +98,22 @@ const selectBrief=(e)=>{
             ))}
           </select>
         </div>
+        <img style={{ width: 300 }} src={ApprenantImage}></img> 
+
+        <div>
         {Apprenants.map((value) => (
            <div key={value.id}>
             <li key={value.id}>
-              {value.Nom} {value.Prenom}
+          {value.Nom} {value.Prenom} 
+          <ProgressBar now={ApprenantAV.map((value) => value.Percentage )} label={`${ApprenantAV.map((value) => value.Percentage )}%`} />
             </li> 
           </div>
         ))} 
-        <img style={{ width: 300 }} src={ApprenantImage}></img> 
+
+        </div>
       </div>
+
+
     )
 }
 export default AvancementApprenant
