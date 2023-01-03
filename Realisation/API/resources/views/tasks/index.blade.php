@@ -86,11 +86,11 @@
           <a href="{{route('generate')}}" class="btn btn-outline-secondary" >{{__('message.export_pdf')}}</a>
           <a href="/exportexcel" class="btn btn-outline-secondary" >{{__('message.export_excel')}}</a>
           <button type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#exampleModal">
-            {{__('message.import_excel')}}
+            import excel
             </button>
        </div>
 
-        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+         <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
           <div class="modal-dialog" role="document">
             <div class="modal-content">
               <div class="modal-header">
@@ -166,6 +166,7 @@
               success:function(data){
                   console.log(data);
                   var task=data.dataTask;
+                  var links =data.links;
                   var html='';
                   if(task.length>0){
                       for(let i=0;i<task.length;i++){
@@ -181,6 +182,8 @@
                                   </button></td>
                                   </tr>`;
                       }
+
+
                   }
                   else{
                       html+=`<tr>\

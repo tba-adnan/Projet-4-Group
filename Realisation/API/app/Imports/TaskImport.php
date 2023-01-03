@@ -2,6 +2,7 @@
 
 namespace App\Imports;
 
+use App\Models\Task;
 use App\Models\PreparationTache;
 use Maatwebsite\Excel\Concerns\ToModel;
 
@@ -15,9 +16,9 @@ class TaskImport implements ToModel
     public function model(array $row)
     {
         return new PreparationTache([
-            'Nom_tache'=> $row[1],
-            'Description'=> $row[2],
-            'Duree'=> $row[3],
+            "Nom_tache"=>$row[1],
+            "Description"=>$row[2],
+            "Duree"=>$row[3],
         ]);
     }
 }

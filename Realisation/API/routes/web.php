@@ -15,7 +15,6 @@ use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 |
 */
 
-Route::group(['prefix'=>LaravelLocalization::setLocale(),'middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath' ]],function(){
 
 
 Route::resource('task', PreparationTacheController::class);
@@ -26,4 +25,3 @@ route::get('/filter_bief',[PreparationTacheController::class,'filter_bief'])->na
 route::get('/searchtache',[PreparationTacheController::class,'search_tache'])->name('searchtache');
 route::get('/generatepdf',[PreparationTacheController::class,'generatepdf'])->name('generate');
 
-});
