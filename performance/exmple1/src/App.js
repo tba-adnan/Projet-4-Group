@@ -9,6 +9,7 @@ function App() {
   const [text2, setText2] = React.useState("");
 
   const onOdd = React.useCallback(() => setText(""), [setText]);
+
   const data = React.useMemo(
     () => ({
       text2,
@@ -20,11 +21,7 @@ function App() {
   return (
     <div className="App">
       <input value={text} onChange={e => setText(e.target.value)} />
-      <input
-        placeholder="text2"
-        value={text2}
-        onChange={e => setText2(e.target.value)}
-      />
+      <input placeholder="text2" value={text2} onChange={e => setText2(e.target.value)}/>
       <Count onOdd={onOdd} data={data} />
     </div>
   );

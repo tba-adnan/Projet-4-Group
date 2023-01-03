@@ -1,7 +1,7 @@
 import React from "react";
 
 export const Count = React.memo(({ onOdd }) => {
-    console.log("t3awedxi lah ykhalik");
+    console.log("render");
   const [count, setCount] = React.useState(0);
   const renders = React.useRef(0);
   return (
