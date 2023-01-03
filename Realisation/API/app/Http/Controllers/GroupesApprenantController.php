@@ -17,7 +17,8 @@ class GroupesApprenantController extends Controller
     {
         $promo=groupes::all();
         $brief=PreparationBrief::all();
-        $apprenants=apprenant::paginate(5);
+        // $apprenants=apprenant::paginate(5);
+        $apprenants=apprenant::all();
         return view('assign.index',['brief'=>$brief,'promo'=>$promo,'apprenants'=>$apprenants]);
     }
 
@@ -38,23 +39,35 @@ class GroupesApprenantController extends Controller
     //     return $date;   // return  2023-01-02
     // }
     
+    
     public function form_save(Request $request)
     {           
-        $Date_affectation= $timestamps();
-        
-        foreach($request->checkbox as $key=>$name){
+        // foreach($request->checkbox as $key=>$name){
+            
+            // if (is_null(PreparationBrief::find($request->Preparation_brief_id)->briefsApprenant()->find($request->Apprenant_id))) {
 
-            $assign = ApprenantPreparationBrief::create([
-                'Apprenant_id' => $request->Apprenant_id,
-                'Preparation_brief_id' => $request->Preparation_brief_id
-            ]);
+            //     $assign = ApprenantPreparationBrief::create([
+            //         'Apprenant_id' => $request->ids$key],
+            //         'Preparation_brief_id' => $request->Preparation_brief_id
+            //     ]);
+            // }
 
+    
             // $insert =[
-            //     'Apprenant_id' =>$request->checkbox[$key],
+            //     'Apprenant_id' =>$request->ids$key],
             // ];
             // DB::table('apprenant_preparation_brief')->insert('$insert');
-        }
 
-        return redirect()->back();
+        // }
+        // datetime.new 
+        
+        
+        print_r($request->ids);
+        print_r($request->briefs);
+        
+        // $ids = $request->ids;
+        // apprenant::whereIn('id',$ids)->delete();        
+        // return redirect()->back();
+
     }
 }

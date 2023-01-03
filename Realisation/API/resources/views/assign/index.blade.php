@@ -20,6 +20,9 @@
 <div class="container-xl">
     <div class="table-responsive">
         <div class="table-wrapper">
+            <form action="{{route('form')}}" method="post">
+            @csrf
+
             <div class="table-title" style="text-align: center">
                 <div class="row">
                     <div class="col-sm-8" >
@@ -27,17 +30,19 @@
                         <br>
                     </div>
                 </div>
-
                 <div class="col-sm-12 d-flex flex-end p-3">
                     {{-- select and choose Brief--}}
-                    <select class="custom-select" >
+                    <select class="custom-select" id="select">
                         <option>Brief:</option>
                         @foreach ($brief as $value)
-                                <option value="{{$value->id}}">{{$value->Nom_du_brief}}</option>
+                        <option value="{{$value->id}}">
+                            {{$value->Nom_du_brief}}
+                        </option>
                         @endforeach
                     </select>
+                    <span id="id_input"></span>
                     {{--  --}}
-                    
+
                     {{--select and filter/Promotion--}}
                     <select class="btn btn-dark dropdown-toggle" name="filter" id="filter">
                         <option>select Groupe</option>
@@ -49,6 +54,7 @@
                 </div>
             </div>
             
+
             <table class="table table-hover">
                 <thead class="table-primary">
                     <th>
@@ -59,33 +65,38 @@
                         </div>
                     </th>
                 </thead>
-                <form action="{{route('form')}}" method="post">
-                    @csrf
                     <tbody id="table1">
+
+                    @if(count($apprenants)>0)
                         @foreach ($apprenants as $student)
                         <tr>
                             <td>
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="{{$student->id}}" id="defaultCheck1"
-                                    name="checkbox[]">
-                                    <label class="form-check-label" for="defaultCheck1">
-                                        {{ $student->Nom }} &nbsp; {{ $student->Prenom }}
-                                    </label>
+                                    <input class="form-check-input" type="checkbox" value="{{ $student->id }}" id="defaultCheck1"
+                                    name="ids[{{ $student->id }}]">
+                                    <label class="form-check-label" for="defaultCheck1"> {{ $student->id }}&nbsp;{{ $student->Nom }}&nbsp;{{ $student->Prenom }} </label>
                                 </div>
                             </td>
                         </tr>
                         @endforeach 
+                    @else 
+                    <tr>
+                        <td>Aucun apprenant</td>
+                    </tr>
+                    @endif
+
                     </tbody>
                 </table>
 
                 <div class="d-flex justify-content-between">
                     <div class="d-flex justify-content-end">
-                        <button type="submit" class="btn btn-outline-primary" data-toggle="modal" data-target="#exampleModal"> Affecter </button>
+                        <input type="submit" class="btn btn-outline-primary" value="Affecter"> 
                     </div>
                     <div class="d-flex justify-content-start">
-                        {!! $apprenants->links() !!}
+                        {{-- {!! $apprenants->links() !!} --}}
                     </div>
                 </div>
+
             </form>
             
         </div>
@@ -95,6 +106,7 @@
 <script type="text/javascript">
     $('#filter').on('change',function(){
         $value=$(this).val();
+
         $.ajax({
             type:'get',
             url:'{{route("filter_par_group")}}',
@@ -123,7 +135,7 @@
                 }
                 else{
                     html+='<tr>\
-                    <td>aucun apprenant</td>\
+                    <td>Aucun apprenant</td>\
                     </tr>';
                 }
                 $('#table1').html(html);
@@ -131,8 +143,15 @@
         });
     })
 
+    $('#select').on('change',function(){
+        $value=$(this).val();
+        // alert($value);
+        document.getElementById("id_input").innerHTML = $value;
+    })
+
+
     function checkUncheck(main) {
-        all = document.getElementsByName('checkbox[]');
+        all = document.getElementsbyName("ids[{{ $student->id }}]");
         for(var a=0;a<all.length;a++){
             all[a].checked =main.checked;
         }
