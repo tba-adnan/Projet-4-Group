@@ -20,7 +20,8 @@
                     @can("isFormateur")
 
                     {{ __("You have Formateur Access") }}
-                    @endcan                </div>
+                    @endcan
+                </div>
             </div>
         </div>
     </div>

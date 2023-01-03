@@ -32,11 +32,11 @@ Route::middleware('auth')->group(function () {
 
 require __DIR__.'/auth.php';
 
-Route::group(['prefix'=>LaravelLocalization::setLocale(),'middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath','can:isFormateur' ]],function(){
+Route::group(['prefix'=>LaravelLocalization::setLocale(),'middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath',"auth"]],function(){
 
 
     Route::resource('task', PreparationTacheController::class);
-    Route::get('/index',[PreparationTacheController::class,'index'])->name('index');
+    Route::get('/',[PreparationTacheController::class,'index'])->name('index');
     Route::get('exportexcel',[PreparationTacheController::class,'exportexcel'])->name('exportexcel');
     Route::post('importexcel',[PreparationTacheController::class,'importexcel'])->name('importexcel');
     route::get('/filter_bief',[PreparationTacheController::class,'filter_bief'])->name('filter_bief');
