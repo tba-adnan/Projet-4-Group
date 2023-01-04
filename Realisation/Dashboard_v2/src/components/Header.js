@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import axios from "axios";
-import StudentAv from "./StudentAv";
-import BriefAv from "./BriefAv";
-import { GroupAv } from './GroupAv';
+import StudentAv from "./Avencement_student";
+import BriefAv from "./Avencement_brief";
+import { GroupAv } from './Avencement_group';
 
 
 export default class Header extends Component {

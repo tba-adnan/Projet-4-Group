@@ -10,6 +10,7 @@
 > cd API
 > composer update
 > composer require maatwebsite/excel
+> composer require mcamara/laravel-localization
 
 ```
 
@@ -34,3 +35,5 @@
 ```sh
 > php artisan serve
 ```
+
+5. 
