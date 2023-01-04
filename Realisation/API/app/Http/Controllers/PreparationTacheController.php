@@ -9,11 +9,18 @@ use App\Exports\TaskExport;
 use App\Imports\TaskImport;
 use App\Models\Task;
 use Barryvdh\DomPDF\Facade\Pdf;
+use Illuminate\Auth\Access\Response;
 use Illuminate\Contracts\Pagination\Paginator;
+use Illuminate\Support\Facades\Gate;
 use Maatwebsite\Excel\Facades\Excel;
 
 class PreparationTacheController extends Controller
 {
+
+    function __construct()
+    {
+        $this->middleware("can:isFormateur")->only(["destroy"]);
+    }
     /**
      * Display a listing of the resource.
      *
@@ -23,9 +30,9 @@ class PreparationTacheController extends Controller
     {
         $brief=PreparationBrief::all();
         $count =PreparationTache::count();
-      
+
         $tasks =PreparationTache::paginate(3);
-        
+
         // $pagination = PreparationTache::paginate($tasks);
 
         // $tasks =PreparationTache::count();
