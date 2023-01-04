@@ -10,10 +10,10 @@
 
   <!-- Content Wrapper. Contains page content -->
 @yield('content') 
-@yield('AddTask') 
-@yield('editTask')
 
-  <!-- /.content-wrapper -->
+
+ 
+<!-- /.content-wrapper -->
 @include('layouts/footer')
 
   <!-- Control Sidebar -->
