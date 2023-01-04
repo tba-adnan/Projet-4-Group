@@ -57,7 +57,7 @@
           {{-- fin dropdown --}}
 
           <div class="dropdown ">
-            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <button  style="background-color: grey" class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 
                {{app()->getLocale()}}
 
