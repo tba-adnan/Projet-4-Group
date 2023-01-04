@@ -188,7 +188,7 @@ return [
 
          // Service Provider DomPDF
         Barryvdh\DomPDF\ServiceProvider::class,
-        Laravel\Scout\ScoutServiceProvider::class,
+        // Laravel\Scout\ScoutServiceProvider::class,
 
         /*
          * Application Service Providers...

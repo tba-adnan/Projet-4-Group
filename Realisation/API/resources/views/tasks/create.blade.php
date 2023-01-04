@@ -74,7 +74,7 @@
 
 </html>
 
-<!DOCTYPE html>
+{{-- <!DOCTYPE html>
 <html>
 <head>
 	<title>Laravel Pagination With search with list of workers</title>
@@ -129,4 +129,4 @@
 	</div>
 </div>
 </body>
-</html>
+</html> --}}

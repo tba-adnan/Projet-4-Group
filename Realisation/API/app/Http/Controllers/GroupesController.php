@@ -33,7 +33,7 @@ class GroupesController extends Controller
     public function create()
     {
         $brief=PreparationBrief::all();
-        return view('tasks.create',['brief'=>$brief]);
+        return view('groupes.create',['brief'=>$brief]);
     }
 
     /**
@@ -44,19 +44,17 @@ class GroupesController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'Nom_tache'=>'required|max:50',
-            'Duree'=>'required'
-        ]);
+        // $request->validate([
+        //     'Nom_groupe'=>'required',
+        //     'Annee_formation'=>'required'
+        // ]);
         Groupes::create([
 
             'Nom_groupe'=>$request->Nom_groupe,
-            'Description'=>$request->Description,
-            'Duree'=>$request->Duree,
-            'Preparation_brief_id'=>$request->Preparation_brief_id
+            'Annee_formation_id'=>$request->Annee_formation
         ]);
 
-        return to_route('task.index');
+        return redirect('group');
     }
 
     /**
@@ -80,7 +78,7 @@ class GroupesController extends Controller
     {
         $edit=Groupes::findOrFail($id);
         $brief=PreparationBrief::all();
-        return view('tasks.edit',['edit'=>$edit,'brief'=>$brief]);
+        return view('groupes.edit',['edit'=>$edit,'brief'=>$brief]);
     }
 
     /**

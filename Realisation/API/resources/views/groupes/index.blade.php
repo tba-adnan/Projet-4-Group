@@ -49,15 +49,15 @@
                 <thead>
                     <tr>
                         <th>Name </th>
-                        <th>Duree</th>
+                        <th>Annee formation</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
                 <tbody  class="table1" id="table1">
                     @foreach ($groupes as $group )
                     <tr>
-                        <td>{{ $group->Nom_tache }}</td>
-                        <td>{{ $group->Duree }}</td>
+                        <td>{{ $group->Nom_groupe}}</td>
+                        <td>{{ $group->Annee_formation_id}}</td>
                         <td>
                             <a  href="{{ route('group.edit', $group->id)}}" class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
                             <form action="{{ route('group.destroy', $group->id)}}" method="post">

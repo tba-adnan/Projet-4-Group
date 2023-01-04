@@ -29,7 +29,7 @@
                         <a href="{{ route('task.create') }}" class="btn btn-primary">+add task</a>
                         
                         {{-- <form method="GET" action="{{ route('filter_bief') }}"> --}}
-                        <select {{ action('ControllerName', ['id'=>1]) }}  class="btn btn-secondary dropdown-toggle ml-2" name="filter" id="filter">
+                        <select class="btn btn-secondary dropdown-toggle ml-2" name="filter" id="filter">
                             <option value="">select brief</option>
                             @foreach ($brief as $value)
                             <option  value="{{$value->id}}">{{$value->Nom_du_brief}}</option>

@@ -32,24 +32,19 @@
               <div class="card-body">
                             <div class="form-group">
                                 <label class="text-muted" for="">Nom</label>
-                                <input class="form-control rounded" type="text" placeholder="" value="{{old('Nom_tache')}}" name="Nom_tache">
-                                @error('Nom_tache')
-                                    <label style="color: red;">{{$message}}</label>
-                                @enderror
-                            </div>
-
-                            <div class="form-group">
-                                <label class="text-muted" for="">Description</label>
-                                <input class="form-control rounded" type="text" placeholder="" name="Description">
-                            </div>
-                            <div class="form-group">
-                                <label class="text-muted" for="">Duree</label>
-                                <input class="form-control rounded" type="text" value="{{old('Duree')}}" placeholder="duree" name="Duree">
-                                @error('Duree')
+                                <input class="form-control rounded" type="text" placeholder="" value="{{old('Nom_groupe')}}" name="Nom_groupe">
+                                @error('Nom_groupe')
                                     <label style="color: red;">{{$message}}</label>
                                 @enderror
                             </div>
                             <div class="form-group">
+                                <label class="text-muted" for="">Annee de formation</label>
+                                <input class="form-control rounded" type="text" value="{{old('Annee_formation')}}"  name="Annee_formation">
+                                @error('Annee_formation')
+                                    <label style="color: red;">{{$message}}</label>
+                                @enderror
+                            </div>
+                            {{-- <div class="form-group">
                                 <label class="text-muted" for="">Brief</label>
                                 <select class="btn form-control rounded btn-secondary dropdown-toggle ml-2" name="Preparation_brief_id" id="Preparation_brief_id">
                                     <option value="">select brief</option>
@@ -57,7 +52,7 @@
                                     <option value="{{$value->id}}">{{$value->Nom_du_brief}}</option>
                                     @endforeach
                                 </select>
-                            </div>
+                            </div> --}}
                             
                             <div class="d-flex justify-content-between">
                                 <button class="btn  btn-primary">Ajouter</button>
