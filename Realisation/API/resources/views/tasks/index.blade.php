@@ -28,20 +28,34 @@
                     <div class="d-flex justify-content-between">
                         <a href="{{ route('task.create') }}" class="btn btn-primary">+add task</a>
                         
-                        
-                        <select class="btn btn-secondary dropdown-toggle ml-2" name="filter" id="filter">
+                        {{-- <form method="GET" action="{{ route('filter_bief') }}"> --}}
+                        <select {{ action('ControllerName', ['id'=>1]) }}  class="btn btn-secondary dropdown-toggle ml-2" name="filter" id="filter">
                             <option value="">select brief</option>
                             @foreach ($brief as $value)
-                            <option value="{{$value->id}}">{{$value->Nom_du_brief}}</option>
+                            <option  value="{{$value->id}}">{{$value->Nom_du_brief}}</option>
                             @endforeach
                         </select>
+                        {{-- </form> --}}
                         
                     </div>
-
-                    <div class="search-box">
+                    <form method="GET" action="{{ route('searchtache') }}">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input type="text" name="search" class="form-control" placeholder="Enter Title For Search" value="">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <button class="btn btn-info ">Search</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                    {{-- <div class="search-box">
                         <i class="material-icons">&#xE8B6;</i>
-                        <input type="text" class="form-control" id="search" placeholder="Search&hellip;">
-                    </div>
+                        <input type="text" class="form-control" name="search" id="search" placeholder="Search&hellip;">
+                    </div> --}}
 
                 </div>
             </div>
@@ -75,7 +89,8 @@
             </table>
             <div class="d-flex justify-content-between">
                 <div class="d-flex justify-content-start">
-                    {!! $tasks->links() !!}
+                    {{-- {!! $tasks->links() !!} --}}
+                    {!! $tasks->appends(['sort' => 'department'])->links() !!}
                 </div>
                 <div>
                     <a href="{{route('generate')}}" class="btn btn-outline-secondary" >Exporter PDF</a>

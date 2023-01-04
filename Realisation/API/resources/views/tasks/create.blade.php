@@ -73,3 +73,60 @@
 </body>
 
 </html>
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Laravel Pagination With search with list of workers</title>
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container">
+	<h1>Laravel Pagination With search with list of workers</h2><br/>
+	
+	<div class="panel panel-primary">
+	  <div class="panel-body">
+	    	<form method="GET" action="{{ route('workers-orders') }}">
+				<div class="row">
+					<div class="col-md-6">
+						<div class="form-group">
+							<input type="text" name="titlesearch" class="form-control" placeholder="Enter Title For Search" value="{{ old('titlesearch') }}">
+						</div>
+					</div>
+					<div class="col-md-6">
+						<div class="form-group">
+							<button class="btn btn-info ">Search</button>
+						</div>
+					</div>
+				</div>
+			</form>
+			<table class="table table-bordered">
+				<thead>
+					<th>Id</th>
+					<th>Title</th>
+					<th>Creation Date</th>
+					<th>Updated Date</th>
+				</thead>
+				<tbody>
+					@if($workers->count())
+						@foreach($workers as $key => $worker)
+							<tr>
+								<td>{{ ++$key }}</td>
+								<td>{{ $worker->title }}</td>
+								<td>{{ $worker->created_at }}</td>
+								<td>{{ $worker->updated_at }}</td>
+							</tr>
+						@endforeach
+					@else
+						<tr>
+							<td colspan="4">There are no data.</td>
+						</tr>
+					@endif
+				</tbody>
+			</table>
+			{{ $workers->links() }}
+	  </div>
+	</div>
+</div>
+</body>
+</html>

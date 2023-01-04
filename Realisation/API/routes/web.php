@@ -3,6 +3,7 @@
 use App\Http\Controllers\GroupesController;
 use App\Http\Controllers\PreparationTacheController;
 use Illuminate\Support\Facades\Route;
+use App\Models\PreparationTache;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,6 +26,9 @@ Route::post('importexcel',[PreparationTacheController::class,'importexcel'])->na
 route::get('/filter_bief',[PreparationTacheController::class,'filter_bief'])->name('filter_bief');
 route::get('/searchtache',[PreparationTacheController::class,'search_tache'])->name('searchtache');
 route::get('/generatepdf',[PreparationTacheController::class,'generatepdf'])->name('generate');
+// Route::get('/convert-to-json', function () {
+//     return PreparationTache::paginate(3);
+// });
 
 //Group Routes
 

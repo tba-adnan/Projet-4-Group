@@ -17,23 +17,34 @@ class PreparationTacheController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        $brief=PreparationBrief::all();
-        $tasks =PreparationTache::paginate(3);
-        // dd($tasks);
-        return view('tasks.index',['brief'=>$brief,'tasks'=>$tasks]);
-    }
+    public function index(Request $request)
+        
+        {
+            $brief=PreparationBrief::all();
+            $tasks=PreparationTache::paginate(2);
+
+            // if($request->has('search')){
+        //   $tasks=PreparationTache::where('Nom_tache','Like','%'.$request->search.'%')->paginate(2);
+        //   $tasks->appends($request->all());
+
+            // }else{
+            //     $tasks = PreparationTache::paginate(2);
+            // }
+            return view('tasks.index',compact('tasks', 'brief'));
+        }
 
 
     public function filter_bief(Request $request){
         $task=PreparationTache::where('Preparation_brief_id','Like','%'.$request->filter.'%')->get();
+        // $task->appends($request->all());
         return response(['dataTask'=>$task]);
     }
 
     public function search_tache(Request $request){
-        $searchtask=PreparationTache::where('Nom_tache','Like','%'.$request->searchtask.'%')->get();
-        return response(['search'=>$searchtask]);
+        $brief=PreparationBrief::all();
+        $tasks=PreparationTache::where('Nom_tache','Like','%'.$request->search.'%')->paginate(2);
+        $tasks ->appends($request->all());
+        return view('tasks.index',compact('tasks','brief'));
 
     }
     /**
