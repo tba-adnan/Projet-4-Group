@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+<body  class="hold-transition sidebar-mini">
 <head>
  @include('layouts/head')
 </head>
@@ -9,8 +10,8 @@
 @include('layouts/sidebar')
 
   <!-- Content Wrapper. Contains page content -->
-@yield('content') 
-@yield('AddTask') 
+@yield('content')
+@yield('AddTask')
 @yield('editTask')
 
   <!-- /.content-wrapper -->
@@ -23,6 +24,6 @@
 
 
 <!-- Page specific script -->
-
+</body>
 
 </html>
