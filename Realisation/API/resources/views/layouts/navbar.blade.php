@@ -1,3 +1,4 @@
+@vite(['resources/css/app.css', 'resources/js/app.js'])
 <body class="hold-transition sidebar-mini">
     <div class="wrapper">
       <!-- Navbar -->
@@ -54,7 +55,7 @@
 
           </div>
           {{-- fin dropdown --}}
-          
+
           <div class="dropdown ">
             <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 
