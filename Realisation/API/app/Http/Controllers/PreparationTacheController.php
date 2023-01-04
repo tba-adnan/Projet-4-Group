@@ -14,6 +14,12 @@ use Maatwebsite\Excel\Facades\Excel;
 
 class PreparationTacheController extends Controller
 {
+
+    function __construct()
+    {
+       $this->middleware("can:isFormateur")->except(["index"]);
+       $this->middleware("can:isFormateur")->only(["destroy"]);
+    }
     /**
      * Display a listing of the resource.
      *
@@ -23,9 +29,9 @@ class PreparationTacheController extends Controller
     {
         $brief=PreparationBrief::all();
         $count =PreparationTache::count();
-      
+
         $tasks =PreparationTache::paginate(3);
-        
+
         // $pagination = PreparationTache::paginate($tasks);
 
         // $tasks =PreparationTache::count();
@@ -135,6 +141,7 @@ class PreparationTacheController extends Controller
      */
     public function destroy($id)
     {
+
         $delete = PreparationTache::findOrFail($id);
         $delete->delete();
         return redirect('/task');
