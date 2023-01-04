@@ -25,16 +25,16 @@
 
                         <div class="dropdown ">
                             <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            
+
                                {{app()->getLocale()}}
-                            
+
                             </button>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                 @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
 
                               <a class="dropdown-item" rel="alternate"  href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}"> {{ $properties['native'] }}</a>
-                             
-                              
+
+
                           @endforeach
 
                             </div>
@@ -142,6 +142,7 @@
             success:function(data){
                 console.log(data);
                 var task=data.dataTask;
+                var links = data.links;
                 var html='';
                 if(task.length>0){
                     for(let i=0;i<task.length;i++){
@@ -149,9 +150,18 @@
                         <td>'+task[i]['Nom_tache']+'</td>\
                         <td>'+task[i]['Description']+'</td>\
                         <td>'+task[i]['Duree']+'</td>\
-                        </tr>';
+                        </tr>'
+
+                        ;
                     }
+                    for(let i=0;i<links.length;i++){
+                        '<div class="d-flex justify-content-start">'
+                           + links[i]['currentPage']+
+                '</div>'\
+                    }
+
                 }
+
                 else{
                     html+='<tr>\
                     <td>no tache</td>\

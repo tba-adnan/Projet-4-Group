@@ -34,8 +34,10 @@ class PreparationTacheController extends Controller
      */
 
     public function filter_bief(Request $request){
-        $task=PreparationTache::where('Preparation_brief_id','Like','%'.$request->filter.'%')->get();
-        return response(['dataTask'=>$task]);
+        $task=PreparationTache::where('Preparation_brief_id','Like','%'.$request->filter.'%')->paginate(3);
+        $links = $task->links();
+        dd($links);
+        return response(['dataTask'=>$task,'links'=>$links]);
     }
 
 
