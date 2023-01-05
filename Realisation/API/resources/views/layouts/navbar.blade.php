@@ -18,7 +18,7 @@
 
         <ul class="navbar-nav ml-auto">
 
-
+          @if (Auth::user())
              <!-- Settings Dropdown -->
          <div class="hidden sm:flex sm:items-center sm:ml-6">
             <x-dropdown align="right" width="48">
@@ -51,9 +51,19 @@
                         </x-dropdown-link>
                     </form>
                 </x-slot>
+                
             </x-dropdown>
 
           </div>
+          @else
+              <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
+              <a href="{{ route('login') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Log in</a>
+    
+              @if (Route::has('register'))
+                  <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline">Register</a>
+              @endif
+          </div>
+          @endif
           {{-- fin dropdown --}}
 
           <div class="dropdown ">
