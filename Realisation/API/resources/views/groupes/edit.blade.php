@@ -22,32 +22,29 @@
         <div class="padding">
             <div class="row container d-flex justify-content-center">
     <div class="col-md-6 col-lg-6">
-                <form class="card" action="{{ route('task.update',$edit->id) }}" method="POST">
+                <form class="card" action="{{ route('group.update',$edit->id) }}" method="POST">
                     @method('PUT')
                     @csrf
-                  <h5 class="card-title d-flex justify-content-center fw-400">Modifier une tache </h5>
-                        <div class="card-body">
+                    <h5 class="card-title d-flex justify-content-center fw-400">Modifier une Groupe </h5>
+                    <div class="card-body">
+                            <div class="form-group">
+                                <label class="text-muted" for="">Logo</label>
+                                <input class="form-control rounded" value="{{$edit->Logo}}" type="text" placeholder="Logo" name="Logo">
+                                @error('Logo')
+                                <label style="color: red;">{{$message}}</label>
+                                @enderror
+                            </div>
                             <div class="form-group">
                                 <label class="text-muted" for="">Nom</label>
-                                <input class="form-control rounded" type="text" value="{{$edit->Nom_tache}}" placeholder="" name="Nom_tache">
-                                @error('Nom_tache')
+                                <input class="form-control rounded" type="text" value="{{$edit->Nom_groupe}}" placeholder="" name="Nom_groupe">
+                                @error('Nom_groupe')
                                 <label style="color: red;">{{$message}}</label>
                                 @enderror
                             </div>
 
+
                             <div class="form-group">
-                                <label class="text-muted" for="">Description</label>
-                                <input class="form-control rounded" type="text" value="{{$edit->Description}}" placeholder="" name="Description">
-                            </div>
-                            <div class="form-group">
-                                <label class="text-muted" for="">Duree</label>
-                                <input class="form-control rounded" value="{{$edit->Duree}}" type="text" placeholder="duree" name="Duree">
-                                @error('Duree')
-                                <label style="color: red;">{{$message}}</label>
-                                @enderror
-                            </div>
-                            <div class="form-group">
-                                <label class="text-muted" for="">Brief</label>
+                                <label class="text-muted" for="">Formatuer</label>
                                 <select class="btn form-control rounded btn-secondary dropdown-toggle ml-2" name="Preparation_brief_id" id="Preparation_brief_id">
                                     <option value="{{$edit->Preparation_brief_id}}">{{$edit->Preparation_brief_id}}</option>
                                     @foreach ($brief as $value)

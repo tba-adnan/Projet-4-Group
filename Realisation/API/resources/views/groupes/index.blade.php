@@ -30,9 +30,9 @@
                         
                         
                         <select class="btn btn-secondary dropdown-toggle ml-2" name="filter" id="filter">
-                            <option value="">select brief</option>
+                            <option value="">Select formatuer</option>
                             @foreach ($formatuers as $value)
-                            <option value="{{$value->id}}">{{$value->Nom_du_brief}}</option>
+                            <option value="{{$value->id}}">{{$value->Nom_formateur}}</option>
                             @endforeach
                         </select>
                         
@@ -48,6 +48,7 @@
             <table class="table table-striped table-hover table-bordered">
                 <thead>
                     <tr>
+                        <th>Image </th>
                         <th>Name </th>
                         <th>Annee formation</th>
                         <th>Actions</th>
@@ -56,6 +57,7 @@
                 <tbody  class="table1" id="table1">
                     @foreach ($groupes as $group )
                     <tr>
+                        <td class="col-2"> <img src="/img/{{$group->Logo}}" alt=""></td>
                         <td>{{ $group->Nom_groupe}}</td>
                         <td>{{ $group->Annee_formation_id}}</td>
                         <td>
