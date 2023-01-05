@@ -15,7 +15,8 @@ use Illuminate\Http\Request;
 class DashboardController extends Controller
 {
     public function index(){
-        return view("index");
+        // $this->authorize('isApprenant');
+        return view("dashboard.dashboard");
     }
     //
     public function years()
