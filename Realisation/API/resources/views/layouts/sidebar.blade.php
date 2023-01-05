@@ -27,7 +27,7 @@
              with font-awesome or any other icon font library -->
 
         {{-- <li class="nav-item menu-open"> --}}
-          @if (Auth::user())
+          @if ("can:isFormateur")
           <a href="/" class="nav-link active">
             <i class="nav-icon fas fa-table"></i>
             <p>
