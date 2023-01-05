@@ -36,4 +36,15 @@
 > php artisan serve
 ```
 
-5. 
+5. installation  projet React dans Laravel :
+
+```sh
+
+> cd React 
+
+> npm Install 
+
+> npm install react-bootstrap bootstrap
+
+> npm run dev
+```
