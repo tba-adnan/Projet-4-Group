@@ -44,7 +44,7 @@
 
               {{-- <li class="nav-item menu-open"> --}}
 
-                <a href="http://127.0.0.1:5173/" class="nav-link active">
+                <a href="{{route('dashboard.dashboard')}}" class="nav-link active">
                   <i class="nav-icon fas fa-table"></i>
                   <p>
                     {{__('message.dashboard')}}
