@@ -44,7 +44,7 @@
 
               {{-- <li class="nav-item menu-open"> --}}
 
-                <a href="{{route("DashboardController.index')}}" class="nav-link active">
+                <a href="{{route("dashboard")}}" class="nav-link active">
                   <i class="nav-icon fas fa-table"></i>
                   <p>
                     {{__('message.dashboard')}}
