@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\PreparationTacheController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
@@ -46,3 +47,5 @@ Route::group(['prefix'=>LaravelLocalization::setLocale(),'middleware' => [ 'loca
     route::get('/generatepdf',[PreparationTacheController::class,'generatepdf'])->name('generate');
 
 });
+Route::get('table_de_bord',[DashboardController::class,"index"]);
+
