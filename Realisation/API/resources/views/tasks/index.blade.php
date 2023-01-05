@@ -63,15 +63,16 @@
               <td >
                   <a  href="{{ route('task.edit', $task->id)}}" class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
 
-                    @can("isFormateur")
+                    {{-- @can("") --}}
                  <form action="{{ route('task.destroy', $task->id)}}" method="post">
                     @csrf
                     @method('DELETE')
                     <button id="trash-icon">
                         <a  class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
                     </button>
+                </form>
                 </td>
-                @endcan
+                {{-- @endcan --}}
 
           </tr>
           @endforeach
@@ -139,14 +140,12 @@
                                     <td>${task[i]['Nom_tache']}</td>
                                     <td>${task[i]['Duree']}</td>
                                     <td><a  href="/task/${task[i]['id']}/edit" class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
-                                        @can("isFormateur")
-                                        <form method="post" action="/task/${task[i]['id']}">
+                                    <form method="post" action="/task/${task[i]['id']}">
                                         <input type="hidden" name="_method" value="Delete">\
                                         <input type="hidden" name="_token" value='{{ csrf_token() }}'>
                                         <button id="trash-icon" type='submit'>
                                     <a  class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
-                                </button>
-                                </td>
+                                </button></td>
                                 </tr>`;
                     }
                 }
