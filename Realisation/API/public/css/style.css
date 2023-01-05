@@ -57,7 +57,11 @@ table.table th i {
     cursor: pointer;
 }
 table.table td:last-child {
-    width: 130px;
+    /* width: 130px; */
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-evenly;
 }
 table.table td a {
     color: #a0a5b1;
@@ -164,16 +168,16 @@ h5.card-title {
     border-collapse: collapse;
     width: 100%;
   }
-  
+
   #customers td, #customers th {
     border: 1px solid #ddd;
     padding: 8px;
   }
-  
+
   #customers tr:nth-child(even){background-color: #f2f2f2;}
-  
+
   #customers tr:hover {background-color: #ddd;}
-  
+
   #customers th {
     padding-top: 12px;
     padding-bottom: 12px;
