@@ -27,7 +27,7 @@
              with font-awesome or any other icon font library -->
 
         {{-- <li class="nav-item menu-open"> --}}
-          @if ("can:isFormateur")
+          @can ("isFormateur")
           <a href="/" class="nav-link active">
             <i class="nav-icon fas fa-table"></i>
             <p>
@@ -35,7 +35,7 @@
               {{-- <i class="fas fa-angle-left right"></i> --}}
             </p>
           </a>
-          @endif
+          @endcan
           <nav class="mt-2">
            
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
