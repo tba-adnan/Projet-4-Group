@@ -45,4 +45,4 @@ Route::group(['prefix'=>LaravelLocalization::setLocale(),'middleware' => [ 'loca
     route::get('/searchtache',[PreparationTacheController::class,'search_tache'])->name('searchtache');
     route::get('/generatepdf',[PreparationTacheController::class,'generatepdf'])->name('generate');
 
-    });
+});
