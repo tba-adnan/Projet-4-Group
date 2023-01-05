@@ -26,10 +26,15 @@
         <div class="padding">
             <div class="row container d-flex justify-content-center">
     <div class="col-md-6 col-lg-6">
-                <form class="card" action="{{ route('group.store') }}" method="POST">
+                <form class="card" action="{{ route('group.store') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                   <h5 class="card-title d-flex justify-content-center fw-400">Ajouter une group</h5>
               <div class="card-body">
+
+                            <div class="form-group">
+                                <label class="text-muted" for="">Logo</label>
+                                <input type="file" name="Logo" id="Logo">
+                            </div>
                             <div class="form-group">
                                 <label class="text-muted" for="">Nom</label>
                                 <input class="form-control rounded" type="text" placeholder="" value="{{old('Nom_groupe')}}" name="Nom_groupe">
@@ -44,15 +49,15 @@
                                     <label style="color: red;">{{$message}}</label>
                                 @enderror
                             </div>
-                            {{-- <div class="form-group">
-                                <label class="text-muted" for="">Brief</label>
-                                <select class="btn form-control rounded btn-secondary dropdown-toggle ml-2" name="Preparation_brief_id" id="Preparation_brief_id">
-                                    <option value="">select brief</option>
-                                    @foreach ($brief as $value)
-                                    <option value="{{$value->id}}">{{$value->Nom_du_brief}}</option>
+                            <div class="form-group">
+                                <label class="text-muted" for="">Annee de formation</label>
+                                <select class="btn form-control rounded btn-secondary dropdown-toggle ml-2" name="Annee_formation" id="Annee_formation">
+                                    <option value="">select Annee</option>
+                                    @foreach ($formatuer as $value)
+                                    <option value="{{$value->id}}">{{$value->Nom_formateur}}</option>
                                     @endforeach
                                 </select>
-                            </div> --}}
+                            </div>
                             
                             <div class="d-flex justify-content-between">
                                 <button class="btn  btn-primary">Ajouter</button>

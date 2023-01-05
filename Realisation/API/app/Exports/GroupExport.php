@@ -2,16 +2,16 @@
 
 namespace App\Exports;
 
-use App\Models\PreparationTache;
+use App\Models\Groupes;
 use Maatwebsite\Excel\Concerns\FromCollection;
 
-class TaskExport implements FromCollection
+class GroupExport implements FromCollection
 {
     /**
     * @return \Illuminate\Support\Collection
     */
     public function collection()
     {
-        return PreparationTache::all();
+        return Groupes::all();
     }
 }

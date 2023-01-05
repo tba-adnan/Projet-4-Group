@@ -2,10 +2,10 @@
 
 namespace App\Imports;
 
-use App\Models\PreparationTache;
+use App\Models\groupes;
 use Maatwebsite\Excel\Concerns\ToModel;
 
-class TaskImport implements ToModel
+class GroupImport implements ToModel
 {
     /**
     * @param array $row
@@ -14,10 +14,9 @@ class TaskImport implements ToModel
     */
     public function model(array $row)
     {
-        return new PreparationTache([
-            'Nom_tache'=> $row[1],
-            'Description'=> $row[2],
-            'Duree'=> $row[3],
+        return new groupes([
+            'Logo' => $row[1], 
+                'Nom_groupe'  => $row[2],
         ]);
     }
 }

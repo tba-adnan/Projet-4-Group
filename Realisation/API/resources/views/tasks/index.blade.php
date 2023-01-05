@@ -42,7 +42,7 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <input type="text" name="search" class="form-control" placeholder="Enter Title For Search" value="">
+                                    <input type="text" name="search" class="form-control" placeholder="Search" value="">
                                 </div>
                             </div>
                             <div class="col-md-6">

@@ -14,6 +14,12 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css%22%3E">
 <link rel="stylesheet" href="/css/style.css">
+<style>
+   .col-2 img{
+        margin-left: 20px;
+        border-radius: 19px;
+    }
+</style>
 </head>
 <body>
 <div class="container-xl">
@@ -57,7 +63,7 @@
                 <tbody  class="table1" id="table1">
                     @foreach ($groupes as $group )
                     <tr>
-                        <td class="col-2"> <img src="/img/{{$group->Logo}}" alt=""></td>
+                        <td class="col-2"><img src="{{asset('./img/'.$group->Logo)}}" alt="" width="100" height="80"></td>
                         <td>{{ $group->Nom_groupe}}</td>
                         <td>{{ $group->Annee_formation_id}}</td>
                         <td>

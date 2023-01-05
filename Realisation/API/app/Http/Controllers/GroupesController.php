@@ -2,10 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\PreparationBrief;
 use Illuminate\Http\Request;
-use App\Exports\TaskExport;
-use App\Imports\TaskImport;
+use App\Exports\GroupExport;
+use App\Imports\GroupImport;
 use App\Models\Formateur;
 use App\Models\Groupes;
 use Barryvdh\DomPDF\Facade\Pdf;
@@ -32,8 +31,8 @@ class GroupesController extends Controller
      */
     public function create()
     {
-        // $brief=PreparationBrief::all();
-        return view('groupes.create');
+        $formatuer=Formateur::all();
+        return view('groupes.create', compact('formatuer'));
     }
 
     /**
@@ -48,10 +47,16 @@ class GroupesController extends Controller
         //     'Nom_groupe'=>'required',
         //     'Annee_formation'=>'required'
         // ]);
+        if($request->has('Logo')){
+            $file=$request->Logo;
+            $Logo=time(). '_' .$file->getClientOriginalName();
+            $file->move(public_path('img'),$Logo);
+            }
         Groupes::create([
 
             'Nom_groupe'=>$request->Nom_groupe,
-            'Annee_formation_id'=>$request->Annee_formation
+            'Annee_formation_id'=>$request->Annee_formation,
+            'Logo'=>$Logo
         ]);
 
         return redirect('group');
@@ -77,8 +82,8 @@ class GroupesController extends Controller
     public function edit($id)
     {
         $edit=Groupes::findOrFail($id);
-        $brief=PreparationBrief::all();
-        return view('groupes.edit',['edit'=>$edit,'brief'=>$brief]);
+        $formatuere=Formateur::all();
+        return view('groupes.edit', compact('formatuere','edit'));
     }
 
     /**
@@ -120,13 +125,13 @@ class GroupesController extends Controller
      // export data format excel
 
      public function exportexcel(){
-        return Excel::download(new TaskExport,'datapage.xlsx');
+        return Excel::download(new GroupExport,'datapage.xlsx');
     }
 
      // import data format excel
      public function importexcel(Request $request){
 
-        Excel::import(new TaskImport, $request->file);
+        Excel::import(new GroupImport, $request->file);
         return redirect()->back();
 
     }
@@ -136,8 +141,8 @@ class GroupesController extends Controller
     public function generatepdf(){
 
         $groupes = Groupes::all();
-        $pdf = Pdf::loadView('pdf.groupes', compact('groupes'));
-        return $pdf->download('groupes.pdf');
+        $pdf = Pdf::loadView('pdf.groups', compact('groupes'));
+        return $pdf->download('groups.pdf');
     }
     
         public function filter_formatuer(Request $request){

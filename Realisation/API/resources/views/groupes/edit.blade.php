@@ -27,13 +27,13 @@
                     @csrf
                     <h5 class="card-title d-flex justify-content-center fw-400">Modifier une Groupe </h5>
                     <div class="card-body">
-                            <div class="form-group">
-                                <label class="text-muted" for="">Logo</label>
-                                <input class="form-control rounded" value="{{$edit->Logo}}" type="text" placeholder="Logo" name="Logo">
-                                @error('Logo')
-                                <label style="color: red;">{{$message}}</label>
-                                @enderror
-                            </div>
+                        <div class="form-group">
+                            <label class="text-muted" for="">Logo</label>
+                            <img src="{{ asset('img')}}/{{ ($edit->Logo) }}" alt="" width="80" height="80">
+                            <input type="hidden" name="Logo" value="{{ $edit->Logo }}">
+                            <input type="file" name="Logo" id="Logo" value="{{$edit->Logo}}" >
+                        </div>
+
                             <div class="form-group">
                                 <label class="text-muted" for="">Nom</label>
                                 <input class="form-control rounded" type="text" value="{{$edit->Nom_groupe}}" placeholder="" name="Nom_groupe">
@@ -46,16 +46,16 @@
                             <div class="form-group">
                                 <label class="text-muted" for="">Formatuer</label>
                                 <select class="btn form-control rounded btn-secondary dropdown-toggle ml-2" name="Preparation_brief_id" id="Preparation_brief_id">
-                                    <option value="{{$edit->Preparation_brief_id}}">{{$edit->Preparation_brief_id}}</option>
-                                    @foreach ($brief as $value)
-                                    <option value="{{$value->id}}">{{$value->Nom_du_brief}}</option>
+                                    <option value="{{$edit->Formateur_id}}">{{$edit->Formateur_id}}</option>
+                                    @foreach ($formatuere as $value)
+                                    <option value="{{$value->id}}">{{$value->Nom_formateur}}</option>
                                     @endforeach
                                 </select>
                             </div>
 
                             <div class="d-flex justify-content-between">
                                 <button class="btn  btn-primary">Enregirter</button>
-                                <a class="btn  btn-secondary" href="{{ route('task.index') }}">Annuler</a>
+                                <a class="btn  btn-secondary" href="{{ route('group.index') }}">Annuler</a>
                             </div>
 
                         </div>
