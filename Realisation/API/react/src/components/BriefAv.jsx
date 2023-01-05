@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import ProgressBar from 'react-bootstrap/ProgressBar';
-
+import { ProgressBar } from 'react-bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
 export class BriefAv extends Component {
     constructor(props){
         super(props)

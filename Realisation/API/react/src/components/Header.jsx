@@ -36,6 +36,7 @@ export default class Header extends Component {
 
    getData = (e) => {
     axios.get('http://localhost:8000/api/group/'+e.target.value).then((res) => {
+        console.log(res.data)
       this.setState({
         group: res.data.group,
         studentCount: res.data.studentCount,
