@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\googleController;
 use App\Http\Controllers\PreparationTacheController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
@@ -44,3 +45,5 @@ Route::group(['prefix'=>LaravelLocalization::setLocale(),'middleware' => [ 'loca
 });
 Route::get('dashboard',[DashboardController::class,"index"])->name('dashboard');;
 
+Route::get('google-auth',[googleController::class,'redirect'])->name('google-auth');
+Route::get('auth/google/callback',[googleController::class,'callbackGoogle']);
