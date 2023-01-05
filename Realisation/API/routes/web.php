@@ -17,13 +17,8 @@ use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -47,5 +42,5 @@ Route::group(['prefix'=>LaravelLocalization::setLocale(),'middleware' => [ 'loca
     route::get('/generatepdf',[PreparationTacheController::class,'generatepdf'])->name('generate');
 
 });
-Route::get('table_de_bord',[DashboardController::class,"index"]);
+Route::get('dashboard',[DashboardController::class,"index"])->name('dashboard');;
 
