@@ -23,7 +23,8 @@ return[
     'add'=>'Add',
     'pdf_title'=>'Liste des tâches',
     'brief'=>'brief',
-    'edit_task'=>'Edit Tasks'
+    'edit_task'=>'Edit Tasks',
+    'dashboard'=>'Dashboard'
 
 ]
 

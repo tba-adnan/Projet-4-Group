@@ -23,7 +23,8 @@ return[
     'add'=>'أضف',
     'pdf_title'=>'عنوان PDF',
     'brief'=>'مشروع',
-    'edit_task'=>' تعديل المهمة'
+    'edit_task'=>' تعديل المهمة',
+    'dashboard'=>'لوحة القيادة'
 
 
 ]

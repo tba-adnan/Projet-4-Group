@@ -71,9 +71,9 @@
                     <button id="trash-icon">
                         <a  class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
                     </button>
-                </form>
+                </td>
                 @endcan
-              </td>
+              
           </tr>
           @endforeach
 
