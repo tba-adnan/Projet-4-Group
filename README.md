@@ -27,7 +27,7 @@
 4. Migrer la base de données :
 
 ```sh
-> php artisan migrate
+> php artisan migrate --seed
 ```
 
 4. Déployer l'application :
@@ -36,15 +36,12 @@
 > php artisan serve
 ```
 
-5. installation  projet React dans Laravel :
+5. installation npm :
 
 ```sh
 
-> cd React 
-
 > npm Install 
 
-> npm install react-bootstrap bootstrap
+> npm run build
 
-> npm run dev
 ```
