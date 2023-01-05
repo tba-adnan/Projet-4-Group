@@ -51,14 +51,14 @@
                         </x-dropdown-link>
                     </form>
                 </x-slot>
-                
+
             </x-dropdown>
 
           </div>
           @else
-              <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
+          <div class="hidden sm:flex sm:items-center sm:ml-6" style="    margin-right: 12px;">
               <a href="{{ route('login') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Log in</a>
-    
+
               @if (Route::has('register'))
                   <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline">Register</a>
               @endif
