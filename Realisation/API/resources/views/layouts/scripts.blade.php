@@ -30,6 +30,5 @@
 
 <!-- AdminLTE App -->
 <script type="text/javascript" src="{{ URL::asset('assets/js/adminlte.min.js') }}"></script>
-<script type="text/javascript" src="{{ URL::asset('assets/js/static/js/main.2a4fcb34.js') }}"></script>
-<script type="text/javascript" src="{{ URL::asset('assets/js/static/css/main.e0e34232.css') }}"></script>
-{{-- <link href="/build/static/css/main.073c9b0a.css" rel="stylesheet"> --}}
+
+ 

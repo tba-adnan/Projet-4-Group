@@ -18,6 +18,7 @@
 
   <!-- Control Sidebar -->
 @include('layouts/scripts')
+@include('layouts/scripts_dashboard')
 <!-- ./wrapper -->
 
 
