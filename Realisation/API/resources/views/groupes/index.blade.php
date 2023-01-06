@@ -40,14 +40,12 @@
                     <div class="d-flex justify-content-between">
                         <a href="{{ route('group.create') }}" class="btn btn-primary">+add group</a>
                         
-                        
-                        {{-- <select class="btn btn-secondary dropdown-toggle ml-2" name="filter" id="filter">
+                        <select class="btn btn-secondary dropdown-toggle ml-2" name="filter" id="filter">
                             <option value="">Select formatuer</option>
-                            @foreach ($formatuers as $value)
-                            <option value="{{$value->id}}">{{$value->Nom_formateur}}</option>
+                            @foreach ($groupes as $value)
+                            <option value="{{$value->formateur->Nom_formateur}}">{{$value->formateur->Nom_formateur}}</option>
                             @endforeach
-                        </select> --}}
-                        
+                        </select>
                     </div>
 
                     <div class="search-box">
@@ -71,10 +69,12 @@
                     <tr>
                         <td class="col-2"><img src="{{asset('./img/'.$group->Logo)}}" alt="" width="100" height="80"></td>
                         <td>{{ $group->Nom_groupe}}</td>
-                        <td>{{ $group->formateur->Nom_formateur}}</td>  
-                        <td class="flex">
-                            <a  href="{{ route('group.edit', $group->id)}}" class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
-                            <a class="btn btn-outline-dark" href="#apprenant">Apprenant</a>
+                        <td>{{ $group->formateur->Nom_formateur}}</td> 
+                        <td class="col-2"> <a  href="{{ route('group.edit', $group->id)}}" class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a></td> 
+                        <td>  <a class="btn btn-outline-dark" href="#apprenant">Apprenant</a></td>
+                        
+                        <td>
+                          
                             <form action="{{ route('group.destroy', $group->id)}}" method="post">
                                 @csrf
                                 @method('DELETE')
