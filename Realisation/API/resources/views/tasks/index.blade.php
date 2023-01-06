@@ -63,7 +63,7 @@
               <td >
                   <a  href="{{ route('task.edit', $task->id)}}" class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
 
-                    {{-- @can("") --}}
+                    @can("isFormateur")
                  <form action="{{ route('task.destroy', $task->id)}}" method="post">
                     @csrf
                     @method('DELETE')
@@ -72,7 +72,7 @@
                     </button>
                 </form>
                 </td>
-                {{-- @endcan --}}
+                @endcan
 
           </tr>
           @endforeach
