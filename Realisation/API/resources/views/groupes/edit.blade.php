@@ -29,8 +29,8 @@
                     <div class="card-body">
                         <div class="form-group">
                             <label class="text-muted" for="">Logo</label>
-                            <img src="{{ asset('img')}}/{{ ($edit->Logo) }}" alt="" width="80" height="80">
-                            <input type="hidden" name="Logo" value="{{ $edit->Logo }}">
+                            <img  src="{{ asset('img')}}/{{ ($edit->Logo) }}" alt="{{$edit->Logo}}" width="80" height="80">
+                            {{-- <input type="hidden" name="Logo" value="{{ $edit->Logo }}"> --}}
                             <input type="file" name="Logo" id="Logo" value="{{$edit->Logo}}" >
                         </div>
 

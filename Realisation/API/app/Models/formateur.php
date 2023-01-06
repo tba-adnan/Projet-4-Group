@@ -21,5 +21,8 @@ class Formateur extends Model
         "CIN",
         "Image"
     ];
+    public function group(){
+        return $this->hasOne(Groupes::class, 'Formateur_id');
+    }
 }
 

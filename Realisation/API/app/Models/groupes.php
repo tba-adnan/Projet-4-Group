@@ -19,4 +19,8 @@ class Groupes extends Model
         "Logo"
 
     ];
+
+    public function formateur(){
+        return $this->belongsTo(Formateur::class, 'Formateur_id');
+    }
 }

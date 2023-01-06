@@ -19,9 +19,8 @@ class GroupesController extends Controller
      */
     public function index()
     {
-        $formatuers=Formateur::all();
-        $groupes =Groupes::paginate(3);
-        return view('groupes.index',compact('formatuers','groupes'));
+        $groupes = Groupes::paginate();
+        return view('groupes.index',compact('groupes'));
     }
 
     /**
@@ -151,7 +150,7 @@ class GroupesController extends Controller
         }
     
         public function search_group(Request $request){
-            $searchtask=Groupes::where('Nom_tache','Like','%'.$request->searchtask.'%')->get();
+            $searchtask=Groupes::where('Nom_groupe','Like','%'.$request->search.'%')->get();
             return response(['search'=>$searchtask]);
     
         }
