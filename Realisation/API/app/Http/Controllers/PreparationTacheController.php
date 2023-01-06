@@ -19,6 +19,7 @@ class PreparationTacheController extends Controller
 
     function __construct()
     {
+        // authorization formateur
         $this->middleware("can:isFormateur")->only(["destroy"]);
     }
     //index view
