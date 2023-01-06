@@ -9,6 +9,8 @@ use Laravel\Socialite\Facades\Socialite;
 
 class googleController extends Controller
 {
+
+    
     function redirect(){
         return Socialite::driver('google')->redirect();
     }
@@ -23,6 +25,8 @@ class googleController extends Controller
                 "name"=>$google_user->getName(),
                 "email"=>$google_user->getEmail(),
                 "google_id"=>$google_user->getId(),
+                "role"=>$google_user->getname(),
+
              ]);
              Auth::login($add_user);
              return redirect('/dashboard');
