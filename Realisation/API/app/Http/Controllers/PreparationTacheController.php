@@ -19,64 +19,52 @@ class PreparationTacheController extends Controller
 
     function __construct()
     {
+        // authorization formateur
         $this->middleware("can:isFormateur")->only(["destroy"]);
     }
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    //index view
     public function index()
     {
+        //afficher touts les briefs
         $brief=PreparationBrief::all();
-        $count =PreparationTache::count();
-
+        //pagination
         $tasks =PreparationTache::paginate(3);
-
-        // $pagination = PreparationTache::paginate($tasks);
-
-        // $tasks =PreparationTache::count();
-        // dd($count);
+        // return view
         return view('tasks.index',['brief'=>$brief,'tasks'=>$tasks]);
     }
-
-
+    // fitrage de brief
     public function filter_bief(Request $request){
+        //filtre par preparation_brief_id
         $task=PreparationTache::where('Preparation_brief_id','Like','%'.$request->filter.'%')->get();
-        // $task =PreparationTache::paginate(3);
+        // return view
         return response(['dataTask'=>$task]);
     }
-
+    // searsh
     public function search_tache(Request $request){
+        // searsh par nom de tache
         $searchtask=PreparationTache::where('Nom_tache','Like','%'.$request->searchtask.'%')->get();
+        // return view
         return response(['search'=>$searchtask]);
 
     }
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    // return page create tache
     public function create()
     {
+        // afficher tous les briefs
         $brief=PreparationBrief::all();
+        // return view
         return view('tasks.create',['brief'=>$brief]);
     }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+    // stocker la tache dans BD
     public function store(Request $request)
     {
+    // validation request
         $request->validate([
             'Nom_tache'=>'required|max:50',
             'Duree'=>'required'
         ]);
+    //ajouter tache dans DB
         PreparationTache::create([
-
             'Nom_tache'=>$request->Nom_tache,
             'Description'=>$request->Description,
             'Duree'=>$request->Duree,
@@ -85,61 +73,35 @@ class PreparationTacheController extends Controller
 
         return to_route('task.index');
     }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    // afficher tache pour editer
     public function edit($id)
     {
+        // afficher la tache par id
         $edit=PreparationTache::findOrFail($id);
+        // afficher tous les briefs
         $brief=PreparationBrief::all();
+        // return view
         return view('tasks.edit',['edit'=>$edit,'brief'=>$brief]);
     }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    //modifer tache
     public function update(Request $request, $id)
     {
+        // validation request
         $request->validate([
             'Nom_tache'=>'required|max:50',
             'Duree'=>'required'
         ]);
+        // modifier tache par id
         $update=PreparationTache::findOrFail($id);
         $update->Nom_tache=$request->get('Nom_tache');
         $update->Description=$request->get('Description');
         $update->Duree=$request->get('Duree');
         $update->Preparation_brief_id=$request->get('Preparation_brief_id');
         $update->save();
-
-
+        //return a page task
         return redirect('/task')->with('success');
     }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    //suprimmer tache
     public function destroy($id)
     {
         $delete = PreparationTache::findOrFail($id);
