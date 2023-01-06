@@ -81,7 +81,7 @@ export default class Header extends Component {
         </div>
 
         <div className="row etatAv">
-            <div className="col-md-6">
+            <div >
                 <GroupAv data={this.state.group_av}/>
                 <BriefAv data={this.state.briefs_av} />
             </div>
