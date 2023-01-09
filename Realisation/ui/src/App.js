@@ -10,10 +10,8 @@ function App() {
   return (
     <div className="wrapper">
       <Header />
-      <Navbar />
-      <Menu />
-      <Dashboard />
-      <Footer />
+      
+      
     </div>
   );
 }
