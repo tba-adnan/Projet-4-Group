@@ -42,13 +42,7 @@
                                     <label style="color: red;">{{$message}}</label>
                                 @enderror
                             </div>
-                            <div class="form-group">
-                                <label class="text-muted" for="">Annee de formation</label>
-                                <input class="form-control rounded" type="text" value="{{old('Annee_formation')}}"  name="Annee_formation">
-                                @error('Annee_formation')
-                                    <label style="color: red;">{{$message}}</label>
-                                @enderror
-                            </div>
+
                             <div class="form-group">
                                 <label class="text-muted" for="">Annee de formation</label>
                                 <select class="btn form-control rounded btn-secondary dropdown-toggle ml-2" name="Annee_formation" id="Annee_formation">

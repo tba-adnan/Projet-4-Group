@@ -53,12 +53,13 @@ class GroupesController extends Controller
             }
         Groupes::create([
 
+            'Logo'=>$Logo,
             'Nom_groupe'=>$request->Nom_groupe,
             'Annee_formation_id'=>$request->Annee_formation,
-            'Logo'=>$Logo
         ]);
 
-        return redirect('group');
+        return to_route('group.index');
+        // return redirect('group');
     }
 
     /**
