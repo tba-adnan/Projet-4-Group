@@ -22,16 +22,16 @@
         <div class="padding">
             <div class="row container d-flex justify-content-center">
     <div class="col-md-6 col-lg-6">
-                <form class="card" action="{{ route('group.update',$edit->id) }}" method="POST">
+                <form class="card" action="{{ route('group.update',$edit->id) }}" method="POST"  enctype="multipart/form-data">
                     @method('PUT')
                     @csrf
                     <h5 class="card-title d-flex justify-content-center fw-400">Modifier une Groupe </h5>
                     <div class="card-body">
                         <div class="form-group">
                             <label class="text-muted" for="">Logo</label>
-                            <img  src="{{ asset('img')}}/{{ ($edit->Logo) }}" alt="{{$edit->Logo}}" width="80" height="80">
-                            {{-- <input type="hidden" name="Logo" value="{{ $edit->Logo }}"> --}}
-                            <input type="file" name="Logo" id="Logo" value="{{$edit->Logo}}" >
+                            <img  src="{{ asset('img')}}/{{ ($edit->Logo) }}" alt="" width="80" height="80">
+                            <input type="hidden" name="Logo" value="{{ $edit->Logo }}">
+                            <input type="file" name="Logoo" id="Logoo" value="{{$edit->Logo}}">
                         </div>
 
                             <div class="form-group">
@@ -45,7 +45,7 @@
 
                             <div class="form-group">
                                 <label class="text-muted" for="">Formatuer</label>
-                                <select class="btn form-control rounded btn-secondary dropdown-toggle ml-2" name="Preparation_brief_id" id="Preparation_brief_id">
+                                <select class="btn form-control rounded btn-secondary dropdown-toggle ml-2" name="Nom_formateur" id="Nom_formateur">
                                     <option value="{{$edit->Formateur_id}}">{{$edit->Formateur_id}}</option>
                                     @foreach ($formatuere as $value)
                                     <option value="{{$value->id}}">{{$value->Nom_formateur}}</option>
@@ -65,5 +65,4 @@
         </div>
     </div>
 </body>
-
 </html>

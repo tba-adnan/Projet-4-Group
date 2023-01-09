@@ -19,7 +19,7 @@ class GroupesController extends Controller
      */
     public function index()
     {
-        $groupes = Groupes::paginate();
+        $groupes = Groupes::paginate(3);
         return view('groupes.index',compact('groupes'));
     }
 
@@ -55,7 +55,7 @@ class GroupesController extends Controller
 
             'Logo'=>$Logo,
             'Nom_groupe'=>$request->Nom_groupe,
-            'Annee_formation_id'=>$request->Annee_formation,
+            'Formateur_id'=>$request->Nom_formateur,
         ]);
 
         return to_route('group.index');
@@ -95,14 +95,22 @@ class GroupesController extends Controller
      */
     public function update(Request $request, $id)
     {
+        if($request->has('Logoo')){
+            $file=$request->Logoo;
+        $Logo=time(). '_' .$file->getClientOriginalName();
+        $file->move(public_path('img'),$Logo);
+        }
+        else{
+            $Logo= $request->input("Logo");
+        }
         // $request->validate([
         //     'Nom_groupe'=>'required|max:50',
         //     'Duree'=>'required'
         // ]);
         $update=Groupes::findOrFail($id);
-        $update->Logo=$request->get('Logo');
+        $update->Logo=$Logo;
         $update->Nom_groupe=$request->get('Nom_groupe');
-        $update->Annee_formation_id=$request->get('Annee_formation');
+        $update->Formateur_id=$request->get('Nom_formateur');
         $update->save();
 
 

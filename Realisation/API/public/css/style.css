@@ -181,3 +181,7 @@ h5.card-title {
     background-color: #04AA6D;
     color: white;
   }
+
+  .table-bordered td, .table-bordered th {
+    border: 0px solid #dee2e6;
+}

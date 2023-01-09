@@ -44,9 +44,9 @@
                             </div>
 
                             <div class="form-group">
-                                <label class="text-muted" for="">Annee de formation</label>
-                                <select class="btn form-control rounded btn-secondary dropdown-toggle ml-2" name="Annee_formation" id="Annee_formation">
-                                    <option value="">select Annee</option>
+                                <label class="text-muted" for=""> Formateur</label>
+                                <select class="btn form-control rounded btn-secondary dropdown-toggle ml-2" name="Nom_formateur" id="Nom_formateur">
+                                    <option value="">select Formateur</option>
                                     @foreach ($formatuer as $value)
                                     <option value="{{$value->id}}">{{$value->Nom_formateur}}</option>
                                     @endforeach

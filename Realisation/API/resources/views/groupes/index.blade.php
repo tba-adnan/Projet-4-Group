@@ -25,6 +25,11 @@
         align-items: center;
         margin-left: 190px;
     }
+
+    #group{
+        display: flex;
+        justify-content: flex-start;
+    }
 </style>
 </head>
 <body>
@@ -40,12 +45,12 @@
                     <div class="d-flex justify-content-between">
                         <a href="{{ route('group.create') }}" class="btn btn-primary">+add group</a>
                         
-                        {{-- <select class="btn btn-secondary dropdown-toggle ml-2" name="filter" id="filter">
+                        <select class="btn btn-secondary dropdown-toggle ml-2" name="filter" id="filter">
                             <option value="">Select formatuer</option>
                             @foreach ($groupes as $value)
                             <option value="{{$value->formateur->Nom_formateur}}">{{$value->formateur->Nom_formateur}}</option>
                             @endforeach
-                        </select> --}}
+                        </select>
                     </div>
 
                     <div class="search-box">
@@ -70,13 +75,11 @@
                         <td class="col-2"><img src="{{asset('./img/'.$group->Logo)}}" alt="" width="100" height="80"></td>
                         <td>{{ $group->Nom_groupe}}</td>
                         <td>
-                            {{-- {{ $group->formateur->Nom_formateur}} --}}
+                            {{ $group->formateur->Nom_formateur}}
                         </td> 
-                        <td class="col-2"> <a  href="{{ route('group.edit', $group->id)}}" class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a></td> 
-                        <td>  <a class="btn btn-outline-dark" href="#apprenant">Apprenant</a></td>
-                        
-                        <td>
-                          
+                        <td class="col-2" id="group"> 
+                            <a  href="{{ route('group.edit', $group->id)}}" class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
+                            <a class="btn btn-outline-dark" href="#apprenant">Apprenant</a>
                             <form action="{{ route('group.destroy', $group->id)}}" method="post">
                                 @csrf
                                 @method('DELETE')
