@@ -8,12 +8,6 @@
           <div class="col-sm-6">
             <h1>{{__('message.title')}}</h1>
           </div>
-          {{-- <div class="col-sm-6">
-            <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Home</a></li>
-
-            </ol>
-          </div> --}}
         </div>
       </div>
     </section>
@@ -60,20 +54,20 @@
           <tr>
               <td>{{ $task->Nom_tache }}</td>
               <td>{{ $task->Duree }}</td>
-              <td>
+              <td >
                   <a  href="{{ route('task.edit', $task->id)}}" class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
 
-                 @can('isFormateur')
-
+                    @can("isFormateur")
                  <form action="{{ route('task.destroy', $task->id)}}" method="post">
                     @csrf
                     @method('DELETE')
                     <button id="trash-icon">
                         <a  class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
                     </button>
+                </form>
                 </td>
                 @endcan
-              
+
           </tr>
           @endforeach
 

@@ -18,7 +18,7 @@
 
         <ul class="navbar-nav ml-auto">
 
-
+          @if (Auth::user())
              <!-- Settings Dropdown -->
          <div class="hidden sm:flex sm:items-center sm:ml-6">
             <x-dropdown align="right" width="48">
@@ -51,12 +51,29 @@
                         </x-dropdown-link>
                     </form>
                 </x-slot>
+
             </x-dropdown>
 
           </div>
+          @else
+          <div class="hidden sm:flex sm:items-center sm:ml-6" style="    margin-right: 12px;">
+              <a href="{{ route('login') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Log in</a>
+
+              @if (Route::has('register'))
+                  <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline">Register</a>
+              @endif
+          </div>
+          @endif
           {{-- fin dropdown --}}
 
           <div class="dropdown ">
+              @php
+              $path = explode("/",$_SERVER['PHP_SELF']);
+
+              @endphp
+              @if ($path[2] == "fr")
+
+
             <button  style="background-color: grey" class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 
                {{app()->getLocale()}}
@@ -71,7 +88,9 @@
           @endforeach
 
             </div>
+            @endif
         </div>
+
 
 
           <!-- Messages Dropdown Menu -->
@@ -87,3 +106,4 @@
 
         </ul>
       </nav>
+    </div>

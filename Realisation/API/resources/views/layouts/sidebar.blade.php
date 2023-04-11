@@ -27,6 +27,7 @@
              with font-awesome or any other icon font library -->
 
         {{-- <li class="nav-item menu-open"> --}}
+          @can ("isFormateur")
           <a href="/" class="nav-link active">
             <i class="nav-icon fas fa-table"></i>
             <p>
@@ -34,22 +35,26 @@
               {{-- <i class="fas fa-angle-left right"></i> --}}
             </p>
           </a>
-
+          @endcan
           <nav class="mt-2">
+           
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
               <!-- Add icons to the links using the .nav-icon class
                    with font-awesome or any other icon font library -->
-      
+
               {{-- <li class="nav-item menu-open"> --}}
-                <a href="/" class="nav-link active">
+
+                <a href="{{route("dashboard")}}" class="nav-link active">
                   <i class="nav-icon fas fa-table"></i>
                   <p>
                     {{__('message.dashboard')}}
                     {{-- <i class="fas fa-angle-left right"></i> --}}
                   </p>
                 </a>
-
-          
+ 
+              </ul>
+              
+          </nav>
 
 
       </ul>
